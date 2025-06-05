@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All In One Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Custom Technical Theme Overrides -->
+ 
+<style>
+    :root {
+        --primary: #0ea5e9;         /* cyan-500 */
+        --secondary: #6366f1;       /* indigo-500 */
+        --accent: #06b6d4;          /* cyan-400 */
+        --bg-main: #0f172a;         /* slate-900 */
+        --bg-card: #1e293b;         /* slate-800 */
+        --bg-section: #111827;      /* slate-900 */
+        --text-main: #e0e7ef;       /* slate-100 */
+        --text-muted: #94a3b8;      /* slate-400 */
+        --border: #334155;          /* slate-700 */
+        --glass: rgba(30,41,59,0.7);
+    }
+    html, body {
+        background: var(--bg-main) !important;
+        color: var(--text-main) !important;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        letter-spacing: 0.01em;
+    }
+    nav, .bg-white, .bg-gray-50, .bg-gray-100 {
+        background: var(--bg-card) !important;
+        color: var(--text-main) !important;
+        border-bottom: 1px solid var(--border);
+    }
+    section, .bg-white, .bg-gray-50, .bg-gray-100 {
+        background: var(--bg-section) !important;
+        color: var(--text-main) !important;
+    }
+    .shadow-lg, .shadow-md, .shadow-2xl {
+        box-shadow: 0 4px 32px 0 rgba(6,182,212,0.10), 0 1.5px 8px 0 rgba(99,102,241,0.10) !important;
+    }
+    .rounded-2xl, .rounded-full, .rounded-md {
+        border-radius: 1.25rem !important;
+        border: 1px solid var(--border);
+        background: var(--glass);
+        backdrop-filter: blur(8px);
+    }
+    .text-blue-700, .text-blue-600, .text-blue-500, .text-blue-400 {
+        color: var(--primary) !important;
+    }
+    .text-gray-700, .text-gray-800, .text-gray-900 {
+        color: var(--text-main) !important;
+    }
+    .text-white {
+        color: #fff !important;
+    }
+    .bg-blue-600, .bg-blue-700, .bg-green-600, .bg-green-700, .bg-gradient-to-br, .bg-gradient-to-r {
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        color: #fff !important;
+        border: none !important;
+    }
+    .hover\:bg-blue-700:hover, .hover\:bg-green-700:hover {
+        background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%) !important;
+        color: #fff !important;
+    }
+    .border, .border-gray-300 {
+        border: 1.5px solid var(--border) !important;
+    }
+    input, select, textarea {
+        background: var(--bg-card) !important;
+        color: var(--text-main) !important;
+        border: 1.5px solid var(--border) !important;
+    }
+    input:focus, select:focus, textarea:focus {
+        outline: 2px solid var(--primary) !important;
+        background: var(--bg-section) !important;
+    }
+    .group-hover\:text-white:hover, .group-hover\:text-white:focus {
+        color: #fff !important;
+    }
+    .group-hover\:bg-gradient-to-br:hover, .group-hover\:bg-gradient-to-br:focus {
+        background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%) !important;
+        color: #fff !important;
+    }
+    .group-hover\:bg-gradient-to-br:hover .text-gray-800,
+    .group-hover\:bg-gradient-to-br:focus .text-gray-800 {
+        color: #fff !important;
+    }
+    .group-hover\:text-white:hover .text-gray-800,
+    .group-hover\:text-white:focus .text-gray-800 {
+        color: #fff !important;
+    }
+    .bg-gradient-to-br, .bg-gradient-to-r {
+        background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%) !important;
+        color: #fff !important;
+    }
+    .bg-gray-900, footer.bg-gray-900 {
+        background: var(--bg-card) !important;
+    }
+    .text-lg, .text-xl, .text-2xl, .text-3xl, .text-4xl, .font-bold, .font-semibold, .font-extrabold {
+        letter-spacing: 0.01em;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+    }
+    .shadow, .shadow-sm {
+        box-shadow: 0 2px 8px 0 rgba(14,165,233,0.08) !important;
+    }
+    .border, .border-gray-300, .border-white {
+        border-color: var(--border) !important;
+    }
+    .hover\:bg-gray-100:hover {
+        background: rgba(30,41,59,0.25) !important;
+        color: var(--primary) !important;
+    }
+    .bg-white\/90, .bg-white\/80 {
+        background: rgba(30,41,59,0.85) !important;
+        color: var(--text-main) !important;
+    }
+    .bg-black.bg-opacity-60 {
+        background: linear-gradient(120deg, rgba(14,165,233,0.7) 0%, rgba(99,102,241,0.7) 100%) !important;
+    }
+    /* Marquee logo grayscale on hover */
+    .grayscale {
+        filter: grayscale(1) brightness(0.8) contrast(1.2);
+        transition: filter 0.2s;
+    }
+    .grayscale:hover {
+        filter: none;
+    }
+    /* Custom scrollbar for technical look */
+    ::-webkit-scrollbar {
+        width: 8px;
+        background: var(--bg-card);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 8px;
+    }
+    /* Dropdowns */
+    .absolute.bg-white {
+        background: var(--bg-card) !important;
+        color: var(--text-main) !important;
+        border: 1.5px solid var(--border) !important;
+        box-shadow: 0 4px 24px 0 rgba(14,165,233,0.10);
+    }
+    /* Modal */
+    #auth-modal .bg-white {
+        background: var(--bg-section) !important;
+        color: var(--text-main) !important;
+        border: 1.5px solid var(--border) !important;
+    }
+    /* Buttons */
+    button, .rounded-full, .px-5, .py-2 {
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        color: #fff !important;
+        border: none !important;
+        box-shadow: 0 2px 8px 0 rgba(14,165,233,0.08) !important;
+        transition: background 0.2s, color 0.2s, transform 0.18s;
+    }
+    button:hover, .rounded-full:hover, .nav-anim-btn:hover, .nav-anim-btn:focus {
+        background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%) !important;
+        color: #fff !important;
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 6px 24px 0 rgba(14,165,233,0.18), 0 2px 12px 0 rgba(99,102,241,0.12) !important;
+    }
+    /* Hero section overlay for more technical look */
+    section.relative.min-h-screen .absolute.inset-0.bg-black {
+        background: linear-gradient(120deg, rgba(46, 37, 95, 0.7) 0%, rgba(41, 33, 72, 0.7) 100%) !important;
+    }
+    /* Section headings */
+    h2, h3, h1 {
+        color: var(--primary) !important;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+    }
+    /* Card hover effect */
+    .group:hover, .group:focus-within {
+        box-shadow: 0 8px 32px 0 rgba(14,165,233,0.18), 0 2px 12px 0 rgba(99,102,241,0.12) !important;
+        background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%) !important;
+        color: #fff !important;
+    }
+    .group:hover a, .group:focus-within a {
+        color: #fff !important;
+    }
+    /* Ensure all links are readable */
+    a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    a:hover, a:focus {
+        color: var(--secondary);
+        text-decoration: underline;
+    }
+    /* Navbar button animation and uniform style */
+    .nav-anim-btn {
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        color: #fff !important;
+        border-radius: 9999px !important;
+        padding: 0.5rem 1.5rem !important;
+        font-weight: 600;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        box-shadow: 0 2px 8px 0 rgba(14,165,233,0.08) !important;
+        border: none !important;
+        transition: background 0.2s, color 0.2s, transform 0.18s;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+    .nav-anim-btn:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255,255,255,0.08);
+        border-radius: 9999px;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s;
+        z-index: 0;
+    }
+    .nav-anim-btn:hover:before, .nav-anim-btn:focus:before {
+        width: 220%;
+        height: 220%;
+    }
+    .nav-anim-btn span, .nav-anim-btn svg {
+        position: relative;
+        z-index: 2;
+    }
+    .nav-anim-btn:active {
+        transform: scale(0.97);
+    }
+    </style>
+    <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    </style>
+    </head>
+    <body class="bg-gray-50 text-gray-800">
+    <!-- Adjusted global font color for better visibility -->
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, button, select, div, section {
+            color: #1e293b !important; /* Tailwind's slate-800 for dark-on-light, improves contrast */
+        }
+        .bg-blue-600, .bg-gray-900, .text-white, .bg-gradient-to-br {
+            color: #fff !important;
+        }
+        .bg-white, .bg-gray-50, .bg-gray-100 {
+            color: #1e293b !important;
+        }
+    </style>
+    <!-- Navbar Brand: All In One Tech -->
+    <nav class="flex justify-between items-center px-6 py-4 shadow-sm bg-white">
+        <!-- Left: Logo and Company Name -->
+        <div class="flex items-center gap-2">
+            <span class="inline-flex items-center justify-center bg-gradient-to-br from-blue-600 to-green-400 rounded-full p-2 shadow-lg">
+                <!-- Example SVG logo icon -->
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="url(#logoGradient)" />
+                    <path d="M8 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2563eb"/>
+                            <stop offset="1" stop-color="#22d3ee"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <a href="index.html" class="inline-flex items-center focus:outline-none">
+                    <span class="border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 bg-white">
+                        All In One Tech
+                    </span>
+                </a>
+            </span>
+        </div>
+        <!-- Right: Navbar Links and Actions -->
+        <div class="flex gap-4 items-center ml-auto">
+            <a href="about us.html" class="nav-anim-btn">About Us</a>
+            <!-- Services Dropdown -->
+            <div class="relative group">
+                <button class="nav-anim-btn flex items-center gap-1">
+                    Services
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute top-12 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10 min-w-[180px]">
+                    <ul class="p-2">
+                        <li>
+                            <a href="wedD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Web Development</a>
+                        </li>
+                        <li>
+                            <a href="appD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">App Development</a>
+                        </li>
+                        <li>
+                            <a href="SEO.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">SEO Services</a>
+                        </li>
+                        <li>
+                            <a href="software.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Software Development</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Categories Dropdown -->
+            <div class="relative group">
+                <button class="nav-anim-btn flex items-center gap-1">
+                    Categories
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute top-12 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10 min-w-[180px]">
+                    <ul class="p-2">
+                        <li>
+                            <a href="graphicD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Graphic Design</a>
+                        </li>
+                        <li>
+                            <a href="archiD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Architecture Design</a>
+                        </li>
+                        <li>
+                            <a href="itsolu.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">IT Solutions</a>
+                        </li>
+                        <li>
+                            <a href="digimar.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Digital Marketing</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="contact.html" class="nav-anim-btn">Contact Us</a>
+            <!-- Sign In / Join Buttons -->
+            <button id="open-signin" class="nav-anim-btn bg-blue-600" style="background: linear-gradient(90deg, #2563eb 0%, #0ea5e9 100%) !important;">Sign In</button>
+            <button id="open-join" class="nav-anim-btn bg-green-600" style="background: linear-gradient(90deg, #22c55e 0%, #06b6d4 100%) !important;">Join</button>
+        </div>
+        <!-- Modal -->
+        <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+                <button id="close-auth-modal" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none">&times;</button>
+                <div class="flex justify-center mb-6">
+                    <button id="show-signin" class="px-4 py-2 font-semibold rounded-l-full bg-blue-600 text-white focus:outline-none">Sign In</button>
+                    <button id="show-join" class="px-4 py-2 font-semibold rounded-r-full bg-gray-200 text-blue-700 focus:outline-none">Join</button>
+                </div>
+                <!-- Sign In Form -->
+                <form id="signin-form">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Sign In</h3>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-full font-semibold hover:bg-blue-700 transition">Sign In</button>
+                </form>
+                <!-- Join Form -->
+                <form id="join-form" class="hidden">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Join</h3>
+                    <input type="text" placeholder="Name" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-700 transition">Join</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Dropdown hover and click support for Services and Categories
+            document.addEventListener('DOMContentLoaded', function () {
+                function setupDropdown(groupSelector) {
+                    const group = document.querySelector(groupSelector);
+                    if (!group) return;
+                    const button = group.querySelector('button');
+                    const dropdown = group.querySelector('div.absolute');
+                    let timeout;
+
+                    function openDropdown() {
+                        clearTimeout(timeout);
+                        dropdown.classList.remove('hidden');
+                    }
+                    function closeDropdown() {
+                        timeout = setTimeout(() => dropdown.classList.add('hidden'), 150);
+                    }
+
+                    group.addEventListener('mouseenter', openDropdown);
+                    group.addEventListener('mouseleave', closeDropdown);
+                    button.addEventListener('focus', openDropdown);
+                    button.addEventListener('blur', closeDropdown);
+                    dropdown.addEventListener('mouseenter', openDropdown);
+                    dropdown.addEventListener('mouseleave', closeDropdown);
+                }
+                setupDropdown('.group:nth-of-type(1)');
+                setupDropdown('.group:nth-of-type(2)');
+
+                // Modal logic
+                function showModal(form) {
+                    document.getElementById('auth-modal').classList.remove('hidden');
+                    document.getElementById('signin-form').classList.toggle('hidden', form !== 'signin');
+                    document.getElementById('join-form').classList.toggle('hidden', form !== 'join');
+                    document.getElementById('show-signin').classList.toggle('bg-blue-600', form === 'signin');
+                    document.getElementById('show-signin').classList.toggle('text-white', form === 'signin');
+                    document.getElementById('show-signin').classList.toggle('bg-gray-200', form !== 'signin');
+                    document.getElementById('show-signin').classList.toggle('text-blue-700', form !== 'signin');
+                    document.getElementById('show-join').classList.toggle('bg-green-600', form === 'join');
+                    document.getElementById('show-join').classList.toggle('text-white', form === 'join');
+                    document.getElementById('show-join').classList.toggle('bg-gray-200', form !== 'join');
+                    document.getElementById('show-join').classList.toggle('text-blue-700', form !== 'join');
+                }
+                document.getElementById('open-signin').onclick = function(e) {
+                    e.preventDefault();
+                    showModal('signin');
+                };
+                document.getElementById('open-join').onclick = function(e) {
+                    e.preventDefault();
+                    showModal('join');
+                };
+                document.getElementById('close-auth-modal').onclick = function() {
+                    document.getElementById('auth-modal').classList.add('hidden');
+                };
+                document.getElementById('show-signin').onclick = function() { showModal('signin'); };
+                document.getElementById('show-join').onclick = function() { showModal('join'); };
+                // Optional: prevent form submission for demo
+                document.getElementById('signin-form').onsubmit = function(e) { e.preventDefault(); };
+                document.getElementById('join-form').onsubmit = function(e) { e.preventDefault(); };
+            });
+        </script>
+    </nav>
+    <!-- Hero Section with Technical AI Background -->
+    <section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden w-full">
+        <!-- Technical AI Background Image (Unsplash, royalty-free) -->
+        <img 
+            src="images/back4.avif"
+            alt="AI Technology Background"
+            class="absolute inset-0 w-full h-full object-cover object-center z-0"
+            style="filter: brightness(0.35) contrast(1.1) grayscale(0.1) saturate(0.9);"
+            loading="lazy"
+        />
+        <div class="absolute inset-0" style="background:rgba(0,0,0,0.45); z-index:1;"></div>
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center max-w-3xl px-4">
+            <h1 class="text-4xl sm:text-5xl font-bold text-white leading-snug">
+                Your End-to-End Marketplace for Everything Tech
+            </h1>
+            <p class="mt-4 text-lg text-white">
+                Find services, solutions, and products to grow your business — all in one place.
+            </p>
+            <!-- Search Bar -->
+            <div class="mt-8 max-w-2xl mx-auto">
+                <form id="site-search-form" class="flex shadow-md rounded-full overflow-hidden border border-white bg-white/90">
+                    <input
+                        id="site-search-input"
+                        type="text"
+                        placeholder="Search for services, products, or solutions..."
+                        class="w-full px-6 py-3 focus:outline-none text-gray-700"
+                        autocomplete="off"
+                    />
+                    <button type="submit" class="bg-blue-600 text-white px-6 py-3 hover:bg-blue-700 transition">
+                        Search
+                    </button>
+                </form>
+                <!-- Search Results -->
+                <div id="search-results" class="mt-4 text-left bg-white rounded shadow-lg max-h-64 overflow-y-auto hidden"></div>
+            </div>
+        </div>
+        <script>
+            // Simple client-side search for demo purposes
+            const searchableItems = [
+                // Navbar
+                { title: "About Us", url: "about us.html" },
+                { title: "Web Development", url: "wedD.html" },
+                { title: "App Development", url: "appD.html" },
+                { title: "SEO Services", url: "SEO.html" },
+                { title: "Software Development", url: "software.html" },
+                { title: "Graphic Design", url: "graphicD.html" },
+                { title: "Architecture Design", url: "archiD.html" },
+                { title: "IT Solutions", url: "itsolu.html" },
+                { title: "Digital Marketing", url: "digimar.html" },
+                { title: "Contact Us", url: "contact.html" },
+                // Hero/Sections
+                { title: "Artificial Intelligence Solutions", url: "#" },
+                { title: "Cloud Computing Services", url: "#" },
+                { title: "Internet of Things (IoT)", url: "#" },
+                { title: "Cybersecurity Solutions", url: "#" },
+                { title: "Project Management Platforms", url: "#" },
+                { title: "Automation Software", url: "#" },
+                { title: "Analytics Dashboards", url: "#" },
+                { title: "Collaboration Suites", url: "#" },
+                // Add more as needed
+            ];
+
+            const searchInput = document.getElementById('site-search-input');
+            const searchForm = document.getElementById('site-search-form');
+            const resultsDiv = document.getElementById('search-results');
+
+            function showResults(results) {
+                if (results.length === 0) {
+                    resultsDiv.innerHTML = '<div class="px-4 py-2 text-gray-500">No results found.</div>';
+                } else {
+                    resultsDiv.innerHTML = results.map(item =>
+                        `<a href="${item.url}" class="block px-4 py-2 hover:bg-blue-50 text-blue-700 font-medium rounded">${item.title}</a>`
+                    ).join('');
+                }
+                resultsDiv.classList.remove('hidden');
+            }
+
+            searchInput.addEventListener('input', function () {
+                const query = this.value.trim().toLowerCase();
+                if (!query) {
+                    resultsDiv.classList.add('hidden');
+                    return;
+                }
+                const results = searchableItems.filter(item =>
+                    item.title.toLowerCase().includes(query)
+                );
+                showResults(results);
+            });
+
+            searchForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const query = searchInput.value.trim().toLowerCase();
+                if (!query) {
+                    resultsDiv.classList.add('hidden');
+                    return;
+                }
+                const results = searchableItems.filter(item =>
+                    item.title.toLowerCase().includes(query)
+                );
+                if (results.length === 1 && results[0].url !== "#") {
+                    window.location.href = results[0].url;
+                } else {
+                    showResults(results);
+                }
+            });
+
+            // Hide results when clicking outside
+            document.addEventListener('click', function (e) {
+                if (!resultsDiv.contains(e.target) && e.target !== searchInput) {
+                    resultsDiv.classList.add('hidden');
+                }
+            });
+        </script>
+    </section>
+
+
+
+  
+<section class="py-16 bg-gray-50 relative z-10">
+    <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold text-blue-700 mb-4">Why Choose Us?</h2>
+        <p class="text-lg text-gray-700 mb-2">
+            We are a multitasking technology company delivering a wide range of innovative solutions.
+        </p>
+        <p class="text-lg text-gray-700">
+            Our expertise spans across web, app, AI, and digital services to empower your business growth.
+        </p>
+    </div>
+</section>
+<section class="py-16 bg-white relative z-20">
+    <div class="max-w-6xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-blue-700 mb-12">Popular Services</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            <!-- Web Development -->
+            <div class="group relative bg-gray-100 rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer hover:bg-gradient-to-br hover:from-blue-500 hover:to-blue-300">
+                <svg class="w-12 h-12 mb-4 text-blue-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                    <path d="M3 8h18" />
+                </svg>
+                <a href="wedD.html" class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors duration-300">Web Development</a> 
+            </div>
+            <!-- App Development -->
+            <div class="group relative bg-gray-100 rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer hover:bg-gradient-to-br hover:from-pink-500 hover:to-yellow-300">
+                <svg class="w-12 h-12 mb-4 text-pink-500 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="3" y="5" width="18" height="14" rx="2" />
+                    <polygon points="10,9 16,12 10,15" fill="currentColor" />
+                </svg>
+                <a href="appD.html" class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors duration-300">App Development</a> 
+            </div>
+            <!-- Software Development -->
+             <!-- SEO -->
+            <div class="group relative bg-gray-100 rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer hover:bg-gradient-to-br hover:from-yellow-400 hover:to-orange-300">
+                <svg class="w-12 h-12 mb-4 text-yellow-500 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="8" />
+                    <path d="M12 8v4l3 3" />
+                </svg>
+              <a href="SEO.html" class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors duration-300">SEO</a> 
+               </div>
+            <!-- Software Development -->
+            <div class="group relative bg-gray-100 rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer hover:bg-gradient-to-br hover:from-green-500 hover:to-teal-300">
+                <svg class="w-12 h-12 mb-4 text-green-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="4" y="4" width="16" height="16" rx="2" />
+                    <path d="M8 2v4M16 2v4M2 8h20" />
+                </svg>
+              <a href="software.html" class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors duration-300">Software Development</a> 
+                 </div>
+            <!--Graphic Design -->
+            <div class="group relative bg-gray-100 rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer hover:bg-gradient-to-br hover:from-purple-500 hover:to-indigo-300">
+                <svg class="w-12 h-12 mb-4 text-purple-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                    <path d="M20 2H6.5A2.5 2.5 0 0 0 4 4.5v15" />
+                    <path d="M20 2v17" />
+                </svg>
+               <a href="graphicD.html" class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors duration-300">Graphic Design</a> 
+               </div>
+            <!-- Architecture Design -->
+            <div class="group relative bg-gray-100 rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer hover:bg-gradient-to-br hover:from-red-500 hover:to-yellow-200">
+                <svg class="w-12 h-12 mb-4 text-red-500 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="3" y="11" width="18" height="10" rx="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                <a href="archiD.html" class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors duration-300">Architecture Design</a> 
+               </div>
+            <!-- IT Solutions -->
+            <div class="group relative bg-gray-100 rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer hover:bg-gradient-to-br hover:from-cyan-500 hover:to-blue-200">
+                <svg class="w-12 h-12 mb-4 text-cyan-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="8" />
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                </svg>
+                 <a href="itsolu.html" class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors duration-300">IT Solution</a> 
+              </div>
+            <!-- Digital Marketing -->
+            <div class="group relative bg-gray-100 rounded-2xl shadow-lg p-8 flex flex-col items-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer hover:bg-gradient-to-br hover:from-fuchsia-500 hover:to-pink-200">
+                <svg class="w-12 h-12 mb-4 text-fuchsia-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <rect x="3" y="7" width="18" height="10" rx="2" />
+                    <path d="M7 7V5a5 5 0 0 1 10 0v2" />
+                    <path d="M12 12v2" />
+                    <circle cx="12" cy="15" r="1" />
+                </svg>
+               <a href="digimar.html" class="text-lg font-semibold text-gray-800 group-hover:text-white transition-colors duration-300">Digital Marketing</a> 
+              </div>
+        </div>
+    </div>
+</section>
+<!-- Two Loops Section -->
+<section class="py-16 bg-gray-50 relative z-10">
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-blue-700 mb-8">Explore Our Offerings</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <!-- First Loop: Featured Technologies -->
+            <div>
+                <h3 class="text-xl font-semibold text-blue-600 mb-4">Featured Technologies</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="inline-block w-3 h-3 bg-blue-500 rounded-full"></span>
+                        Artificial Intelligence Solutions
+                    </li>
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="inline-block w-3 h-3 bg-blue-500 rounded-full"></span>
+                        Cloud Computing Services
+                    </li>
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="inline-block w-3 h-3 bg-blue-500 rounded-full"></span>
+                        Internet of Things (IoT)
+                    </li>
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="inline-block w-3 h-3 bg-blue-500 rounded-full"></span>
+                        Cybersecurity Solutions
+                    </li>
+                </ul>
+            </div>
+            <!-- Second Loop: Popular Tools -->
+            <div>
+                <h3 class="text-xl font-semibold text-blue-600 mb-4">Popular Tools</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="inline-block w-3 h-3 bg-green-500 rounded-full"></span>
+                        Project Management Platforms
+                    </li>
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="inline-block w-3 h-3 bg-green-500 rounded-full"></span>
+                        Automation Software
+                    </li>
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="inline-block w-3 h-3 bg-green-500 rounded-full"></span>
+                        Analytics Dashboards
+                    </li>
+                    <li class="flex items-center gap-3 text-white">
+                        <span class="inline-block w-3 h-3 bg-green-500 rounded-full"></span>
+                        Collaboration Suites
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- All In One Technology Line -->
+<section class="py-8 bg-blue-600">
+    <div class="max-w-2xl mx-auto text-center">
+        <p class="text-xl text-white font-semibold">
+            All In One Technology: Empowering your business with comprehensive, innovative, and reliable tech solutions under one roof.
+        </p>
+    </div>
+</section>
+<style>
+    section.bg-gray-900,
+    footer.bg-gray-900 {
+        background-color: #e0f2fe !important;
+    }
+</style>
+<script>
+    // Ensure both marquees have the same speed by matching animation duration
+    document.addEventListener("DOMContentLoaded", function() {
+        const marquee1 = document.querySelector('.animate-marquee');
+        const marquee2 = document.querySelector('.animate-marquee-right');
+        if (marquee1 && marquee2) {
+            marquee1.style.animationDuration = '30s';
+            marquee2.style.animationDuration = '30s';
+        }
+    });
+</script>
+
+<style>
+    /* Remove grayscale filter from logo icons */
+    .logo-marquee img,
+    #logo-marquee img {
+        filter: none !important;
+        -webkit-filter: none !important;
+        transition: none !important;
+    }
+</style></style>
+<style>
+    h2 {
+        color: #1d4ed8 !important; /* Tailwind's blue-700 */
+    }
+</style>
+<!-- Seamless Logo Marquee Section -->
+<section class="bg-[#1e293b] py-10 mt-12 relative overflow-hidden">
+    <h2 class="text-2xl font-bold text-center text-blue-400 mb-8">Trusted by Leading Tech Companies</h2>
+    <div class="relative w-full overflow-x-hidden">
+        <div class="flex items-center gap-12 whitespace-nowrap" style="will-change: transform;">
+            <div class="flex items-center gap-12 animate-marquee">
+                <img src="images/icons8-adobe-48.png" alt="Company 1" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-infinite-campus-100.png" alt="Company 2" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-microsoft-48.png" alt="Company 3" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-qgenda-48.png" alt="Company 4" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-red-hat-48.png" alt="Company 5" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-salesforce-48.png" alt="Company 6" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-stripe-48.png" alt="Company 7" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-travis-ci-48.png" alt="Company 8" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <!-- Duplicate for seamless loop -->
+                <img src="images/icons8-adobe-48.png" alt="Company 1" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-infinite-campus-100.png" alt="Company 2" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-microsoft-48.png" alt="Company 3" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-qgenda-48.png" alt="Company 4" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-red-hat-48.png" alt="Company 5" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-salesforce-48.png" alt="Company 6" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-stripe-48.png" alt="Company 7" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+                <img src="images/icons8-travis-ci-48.png" alt="Company 8" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            </div>
+        </div>
+    </div>
+    <style>
+        @keyframes marquee {
+            0% { transform: translateX(50%); }
+            100% { transform: translateX(0); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+    </style>
+</section>
+<footer class="bg-[#1e293b] py-10 mt-12 relative overflow-hidden">
+    <div class="relative w-full overflow-x-hidden">
+        <div class="flex items-center gap-12 animate-marquee-right whitespace-nowrap">
+            <img src="images/icons8-adobe-48.png" alt="Company 1" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-infinite-campus-100.png" alt="Company 2" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-microsoft-48.png" alt="Company 3" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-qgenda-48.png" alt="Company 4" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-red-hat-48.png" alt="Company 5" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-salesforce-48.png" alt="Company 6" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-stripe-48.png" alt="Company 7" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-travis-ci-48.png" alt="Company 8" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <!-- Duplicate for seamless loop -->
+            <img src="images/icons8-adobe-48.png" alt="Company 1" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-infinite-campus-100.png" alt="Company 2" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-microsoft-48.png" alt="Company 3" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-qgenda-48.png" alt="Company 4" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-red-hat-48.png" alt="Company 5" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-salesforce-48.png" alt="Company 6" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-stripe-48.png" alt="Company 7" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+            <img src="images/icons8-travis-ci-48.png" alt="Company 8" class="h-12 w-auto transition bg-white rounded-full p-2 shadow" />
+        </div>
+    </div>
+    <style>
+        @keyframes marquee-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        .animate-marquee-right {
+            animation: marquee-right 30s linear infinite;
+        }
+    </style>
+</footer>

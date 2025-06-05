@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All In One Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Custom Technical Theme Overrides -->
+ 
+<style>
+    :root {
+        --primary: #0ea5e9;         /* cyan-500 */
+        --secondary: #6366f1;       /* indigo-500 */
+        --accent: #06b6d4;          /* cyan-400 */
+        --bg-main: #0f172a;         /* slate-900 */
+        --bg-card: #1e293b;         /* slate-800 */
+        --bg-section: #111827;      /* slate-900 */
+        --text-main: #e0e7ef;       /* slate-100 */
+        --text-muted: #94a3b8;      /* slate-400 */
+        --border: #334155;          /* slate-700 */
+        --glass: rgba(30,41,59,0.7);
+    }
+    html, body {
+        background: var(--bg-main) !important;
+        color: var(--text-main) !important;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        letter-spacing: 0.01em;
+    }
+    nav, .bg-white, .bg-gray-50, .bg-gray-100 {
+        background: var(--bg-card) !important;
+        color: var(--text-main) !important;
+        border-bottom: 1px solid var(--border);
+    }
+    section, .bg-white, .bg-gray-50, .bg-gray-100 {
+        background: var(--bg-section) !important;
+        color: var(--text-main) !important;
+    }
+    .shadow-lg, .shadow-md, .shadow-2xl {
+        box-shadow: 0 4px 32px 0 rgba(6,182,212,0.10), 0 1.5px 8px 0 rgba(99,102,241,0.10) !important;
+    }
+    .rounded-2xl, .rounded-full, .rounded-md {
+        border-radius: 1.25rem !important;
+        border: 1px solid var(--border);
+        background: var(--glass);
+        backdrop-filter: blur(8px);
+    }
+    .text-blue-700, .text-blue-600, .text-blue-500, .text-blue-400 {
+        color: var(--primary) !important;
+    }
+    .text-gray-700, .text-gray-800, .text-gray-900 {
+        color: var(--text-main) !important;
+    }
+    .text-white {
+        color: #fff !important;
+    }
+    .bg-blue-600, .bg-blue-700, .bg-green-600, .bg-green-700, .bg-gradient-to-br, .bg-gradient-to-r {
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        color: #fff !important;
+        border: none !important;
+    }
+    .hover\:bg-blue-700:hover, .hover\:bg-green-700:hover {
+        background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%) !important;
+        color: #fff !important;
+    }
+    .border, .border-gray-300 {
+        border: 1.5px solid var(--border) !important;
+    }
+    input, select, textarea {
+        background: var(--bg-card) !important;
+        color: var(--text-main) !important;
+        border: 1.5px solid var(--border) !important;
+    }
+    input:focus, select:focus, textarea:focus {
+        outline: 2px solid var(--primary) !important;
+        background: var(--bg-section) !important;
+    }
+    .group-hover\:text-white:hover, .group-hover\:text-white:focus {
+        color: #fff !important;
+    }
+    .group-hover\:bg-gradient-to-br:hover, .group-hover\:bg-gradient-to-br:focus {
+        background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%) !important;
+        color: #fff !important;
+    }
+    .group-hover\:bg-gradient-to-br:hover .text-gray-800,
+    .group-hover\:bg-gradient-to-br:focus .text-gray-800 {
+        color: #fff !important;
+    }
+    .group-hover\:text-white:hover .text-gray-800,
+    .group-hover\:text-white:focus .text-gray-800 {
+        color: #fff !important;
+    }
+    .bg-gradient-to-br, .bg-gradient-to-r {
+        background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%) !important;
+        color: #fff !important;
+    }
+    .bg-gray-900, footer.bg-gray-900 {
+        background: var(--bg-card) !important;
+    }
+    .text-lg, .text-xl, .text-2xl, .text-3xl, .text-4xl, .font-bold, .font-semibold, .font-extrabold {
+        letter-spacing: 0.01em;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+    }
+    .shadow, .shadow-sm {
+        box-shadow: 0 2px 8px 0 rgba(14,165,233,0.08) !important;
+    }
+    .border, .border-gray-300, .border-white {
+        border-color: var(--border) !important;
+    }
+    .hover\:bg-gray-100:hover {
+        background: rgba(30,41,59,0.25) !important;
+        color: var(--primary) !important;
+    }
+    .bg-white\/90, .bg-white\/80 {
+        background: rgba(30,41,59,0.85) !important;
+        color: var(--text-main) !important;
+    }
+    .bg-black.bg-opacity-60 {
+        background: linear-gradient(120deg, rgba(14,165,233,0.7) 0%, rgba(99,102,241,0.7) 100%) !important;
+    }
+    /* Marquee logo grayscale on hover */
+    .grayscale {
+        filter: grayscale(1) brightness(0.8) contrast(1.2);
+        transition: filter 0.2s;
+    }
+    .grayscale:hover {
+        filter: none;
+    }
+    /* Custom scrollbar for technical look */
+    ::-webkit-scrollbar {
+        width: 8px;
+        background: var(--bg-card);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 8px;
+    }
+    /* Dropdowns */
+    .absolute.bg-white {
+        background: var(--bg-card) !important;
+        color: var(--text-main) !important;
+        border: 1.5px solid var(--border) !important;
+        box-shadow: 0 4px 24px 0 rgba(14,165,233,0.10);
+    }
+    /* Modal */
+    #auth-modal .bg-white {
+        background: var(--bg-section) !important;
+        color: var(--text-main) !important;
+        border: 1.5px solid var(--border) !important;
+    }
+    /* Buttons */
+    button, .rounded-full, .px-5, .py-2 {
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        color: #fff !important;
+        border: none !important;
+        box-shadow: 0 2px 8px 0 rgba(14,165,233,0.08) !important;
+        transition: background 0.2s, color 0.2s, transform 0.18s;
+    }
+    button:hover, .rounded-full:hover, .nav-anim-btn:hover, .nav-anim-btn:focus {
+        background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%) !important;
+        color: #fff !important;
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 6px 24px 0 rgba(14,165,233,0.18), 0 2px 12px 0 rgba(99,102,241,0.12) !important;
+    }
+    /* Hero section overlay for more technical look */
+    section.relative.min-h-screen .absolute.inset-0.bg-black {
+        background: linear-gradient(120deg, rgba(46, 37, 95, 0.7) 0%, rgba(41, 33, 72, 0.7) 100%) !important;
+    }
+    /* Section headings */
+    h2, h3, h1 {
+        color: var(--primary) !important;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+    }
+    /* Card hover effect */
+    .group:hover, .group:focus-within {
+        box-shadow: 0 8px 32px 0 rgba(14,165,233,0.18), 0 2px 12px 0 rgba(99,102,241,0.12) !important;
+        background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%) !important;
+        color: #fff !important;
+    }
+    .group:hover a, .group:focus-within a {
+        color: #fff !important;
+    }
+    /* Ensure all links are readable */
+    a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    a:hover, a:focus {
+        color: var(--secondary);
+        text-decoration: underline;
+    }
+    /* Navbar button animation and uniform style */
+    .nav-anim-btn {
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        color: #fff !important;
+        border-radius: 9999px !important;
+        padding: 0.5rem 1.5rem !important;
+        font-weight: 600;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        box-shadow: 0 2px 8px 0 rgba(14,165,233,0.08) !important;
+        border: none !important;
+        transition: background 0.2s, color 0.2s, transform 0.18s;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+    .nav-anim-btn:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255,255,255,0.08);
+        border-radius: 9999px;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s;
+        z-index: 0;
+    }
+    .nav-anim-btn:hover:before, .nav-anim-btn:focus:before {
+        width: 220%;
+        height: 220%;
+    }
+    .nav-anim-btn span, .nav-anim-btn svg {
+        position: relative;
+        z-index: 2;
+    }
+    .nav-anim-btn:active {
+        transform: scale(0.97);
+    }
+    </style>
+    <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    </style>
+    </head>
+    <body class="bg-gray-50 text-gray-800">
+    <!-- Adjusted global font color for better visibility -->
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, button, select, div, section {
+            color: #1e293b !important; /* Tailwind's slate-800 for dark-on-light, improves contrast */
+        }
+        .bg-blue-600, .bg-gray-900, .text-white, .bg-gradient-to-br {
+            color: #fff !important;
+        }
+        .bg-white, .bg-gray-50, .bg-gray-100 {
+            color: #1e293b !important;
+        }
+    </style>
+    <!-- Navbar Brand: All In One Tech -->
+    <nav class="flex justify-between items-center px-6 py-4 shadow-sm bg-white">
+        <!-- Left: Logo and Company Name -->
+        <div class="flex items-center gap-2">
+            <span class="inline-flex items-center justify-center bg-gradient-to-br from-blue-600 to-green-400 rounded-full p-2 shadow-lg">
+                <!-- Example SVG logo icon -->
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="url(#logoGradient)" />
+                    <path d="M8 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2563eb"/>
+                            <stop offset="1" stop-color="#22d3ee"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <a href="index.html" class="inline-flex items-center focus:outline-none">
+                    <span class="border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 bg-white">
+                        All In One Tech
+                    </span>
+                </a>
+            </span>
+        </div>
+        <!-- Right: Navbar Links and Actions -->
+        <div class="flex gap-4 items-center ml-auto">
+            <a href="about us.html" class="nav-anim-btn">About Us</a>
+            <!-- Services Dropdown -->
+            <div class="relative group">
+                <button class="nav-anim-btn flex items-center gap-1">
+                    Services
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute top-12 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10 min-w-[180px]">
+                    <ul class="p-2">
+                        <li>
+                            <a href="wedD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Web Development</a>
+                        </li>
+                        <li>
+                            <a href="appD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">App Development</a>
+                        </li>
+                        <li>
+                            <a href="SEO.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">SEO Services</a>
+                        </li>
+                        <li>
+                            <a href="software.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Software Development</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Categories Dropdown -->
+            <div class="relative group">
+                <button class="nav-anim-btn flex items-center gap-1">
+                    Categories
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute top-12 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10 min-w-[180px]">
+                    <ul class="p-2">
+                        <li>
+                            <a href="graphicD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Graphic Design</a>
+                        </li>
+                        <li>
+                            <a href="archiD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Architecture Design</a>
+                        </li>
+                        <li>
+                            <a href="itsolu.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">IT Solutions</a>
+                        </li>
+                        <li>
+                            <a href="digimar.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Digital Marketing</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="contact.html" class="nav-anim-btn">Contact Us</a>
+            <!-- Sign In / Join Buttons -->
+            <button id="open-signin" class="nav-anim-btn bg-blue-600" style="background: linear-gradient(90deg, #2563eb 0%, #0ea5e9 100%) !important;">Sign In</button>
+            <button id="open-join" class="nav-anim-btn bg-green-600" style="background: linear-gradient(90deg, #22c55e 0%, #06b6d4 100%) !important;">Join</button>
+        </div>
+        <!-- Modal -->
+        <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+                <button id="close-auth-modal" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none">&times;</button>
+                <div class="flex justify-center mb-6">
+                    <button id="show-signin" class="px-4 py-2 font-semibold rounded-l-full bg-blue-600 text-white focus:outline-none">Sign In</button>
+                    <button id="show-join" class="px-4 py-2 font-semibold rounded-r-full bg-gray-200 text-blue-700 focus:outline-none">Join</button>
+                </div>
+                <!-- Sign In Form -->
+                <form id="signin-form">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Sign In</h3>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-full font-semibold hover:bg-blue-700 transition">Sign In</button>
+                </form>
+                <!-- Join Form -->
+                <form id="join-form" class="hidden">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Join</h3>
+                    <input type="text" placeholder="Name" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-700 transition">Join</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Dropdown hover and click support for Services and Categories
+            document.addEventListener('DOMContentLoaded', function () {
+                function setupDropdown(groupSelector) {
+                    const group = document.querySelector(groupSelector);
+                    if (!group) return;
+                    const button = group.querySelector('button');
+                    const dropdown = group.querySelector('div.absolute');
+                    let timeout;
+
+                    function openDropdown() {
+                        clearTimeout(timeout);
+                        dropdown.classList.remove('hidden');
+                    }
+                    function closeDropdown() {
+                        timeout = setTimeout(() => dropdown.classList.add('hidden'), 150);
+                    }
+
+                    group.addEventListener('mouseenter', openDropdown);
+                    group.addEventListener('mouseleave', closeDropdown);
+                    button.addEventListener('focus', openDropdown);
+                    button.addEventListener('blur', closeDropdown);
+                    dropdown.addEventListener('mouseenter', openDropdown);
+                    dropdown.addEventListener('mouseleave', closeDropdown);
+                }
+                setupDropdown('.group:nth-of-type(1)');
+                setupDropdown('.group:nth-of-type(2)');
+
+                // Modal logic
+                function showModal(form) {
+                    document.getElementById('auth-modal').classList.remove('hidden');
+                    document.getElementById('signin-form').classList.toggle('hidden', form !== 'signin');
+                    document.getElementById('join-form').classList.toggle('hidden', form !== 'join');
+                    document.getElementById('show-signin').classList.toggle('bg-blue-600', form === 'signin');
+                    document.getElementById('show-signin').classList.toggle('text-white', form === 'signin');
+                    document.getElementById('show-signin').classList.toggle('bg-gray-200', form !== 'signin');
+                    document.getElementById('show-signin').classList.toggle('text-blue-700', form !== 'signin');
+                    document.getElementById('show-join').classList.toggle('bg-green-600', form === 'join');
+                    document.getElementById('show-join').classList.toggle('text-white', form === 'join');
+                    document.getElementById('show-join').classList.toggle('bg-gray-200', form !== 'join');
+                    document.getElementById('show-join').classList.toggle('text-blue-700', form !== 'join');
+                }
+                document.getElementById('open-signin').onclick = function(e) {
+                    e.preventDefault();
+                    showModal('signin');
+                };
+                document.getElementById('open-join').onclick = function(e) {
+                    e.preventDefault();
+                    showModal('join');
+                };
+                document.getElementById('close-auth-modal').onclick = function() {
+                    document.getElementById('auth-modal').classList.add('hidden');
+                };
+                document.getElementById('show-signin').onclick = function() { showModal('signin'); };
+                document.getElementById('show-join').onclick = function() { showModal('join'); };
+                // Optional: prevent form submission for demo
+                document.getElementById('signin-form').onsubmit = function(e) { e.preventDefault(); };
+                document.getElementById('join-form').onsubmit = function(e) { e.preventDefault(); };
+            });
+        </script>
+    </nav>
+<!-- Hero Section -->
+<section class="relative flex flex-col items-center justify-center min-h-[60vh] bg-gradient-to-br from-blue-50 via-green-50 to-white px-4 py-16 animate-fade-in">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-600 via-green-400 to-blue-400 bg-clip-text text-transparent tracking-tight drop-shadow animate-slide-down">
+        Digital Marketing Services
+    </h1>
+    <p class="max-w-2xl text-lg md:text-xl text-gray-600 mb-8 text-center animate-fade-in delay-200">
+        Unlock your business potential with our comprehensive digital marketing solutions. From SEO to social media, we help you reach, engage, and convert your audience.
+    </p>
+    <a href="#pricing" class="bg-blue-600 hover:bg-green-500 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 animate-bounce">
+        View Pricing
+    </a>
+</section>
+<style>
+    h2 {
+        color: #fff !important;
+    }
+</style>
+<!-- Definition & Importance -->
+<section class="max-w-5xl mx-auto py-12 px-4 grid md:grid-cols-2 gap-10 items-center animate-fade-in-up">
+    <div>
+        <h2 class="text-2xl font-bold mb-4 animate-slide-right">What is Digital Marketing?</h2>
+        <p class="text-gray-700 mb-4">
+            Digital marketing refers to all marketing efforts that use the internet or electronic devices. Businesses leverage digital channels such as search engines, social media, email, and websites to connect with current and prospective customers.
+        </p>
+        <p class="text-gray-700">
+            In today's digital-first world, digital marketing is essential for building brand awareness, generating leads, and driving measurable business growth.
+        </p>
+    </div>
+    <div class="flex justify-center animate-fade-in delay-200">
+        <img src="https://img.freepik.com/free-vector/digital-marketing-concept-landing-page_52683-18636.jpg?w=826&t=st=1718030000~exp=1718030600~hmac=example" alt="Digital Marketing Illustration" class="rounded-xl shadow-lg w-full max-w-xs hover:scale-105 transition-transform duration-300">
+    </div>
+</section>
+<style>
+    h2, h3, p {
+        color: #fff !important;
+    }
+</style>
+<!-- Key Components & Strategies -->
+<section class="max-w-6xl mx-auto py-12 px-4">
+    <h2 class="text-2xl font-bold mb-8 text-center animate-slide-up">Key Components & Strategies</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 animate-fade-in-up">
+            <h3 class="font-semibold text-lg mb-2">Search Engine Optimization (SEO)</h3>
+            <p class="text-gray-600">Improve your website’s visibility on search engines to attract organic traffic.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 animate-fade-in-up delay-100">
+            <h3 class="font-semibold text-lg mb-2">Social Media Marketing</h3>
+            <p class="text-gray-600">Engage your audience and build your brand on platforms like Facebook, Instagram, and LinkedIn.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 animate-fade-in-up delay-200">
+            <h3 class="font-semibold text-lg mb-2">Pay-Per-Click (PPC) Advertising</h3>
+            <p class="text-gray-600">Drive targeted traffic quickly with paid ads on Google, Bing, and social media.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 animate-fade-in-up delay-300">
+            <h3 class="font-semibold text-lg mb-2">Content Marketing</h3>
+            <p class="text-gray-600">Attract and retain customers by creating valuable and relevant content.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 animate-fade-in-up delay-400">
+            <h3 class="font-semibold text-lg mb-2">Email Marketing</h3>
+            <p class="text-gray-600">Nurture leads and keep your audience engaged with personalized email campaigns.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 animate-fade-in-up delay-500">
+            <h3 class="font-semibold text-lg mb-2">Analytics & Reporting</h3>
+            <p class="text-gray-600">Track, measure, and optimize your campaigns for the best results.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="max-w-5xl mx-auto py-12 px-4 animate-fade-in">
+    <h2 class="text-2xl font-bold mb-6 text-center">Why Choose Digital Marketing?</h2>
+    <ul class="grid md:grid-cols-3 gap-8">
+        <li class="flex flex-col items-center bg-gradient-to-br from-blue-100 to-green-100 rounded-xl p-6 shadow-md hover:scale-105 transition-transform duration-300 animate-fade-in-up">
+            <span class="text-3xl mb-2">🚀</span>
+            <span class="font-semibold mb-1">Increased Visibility</span>
+            <span class="text-gray-600 text-center">Reach a global audience and boost your brand awareness.</span>
+        </li>
+        <li class="flex flex-col items-center bg-gradient-to-br from-blue-100 to-green-100 rounded-xl p-6 shadow-md hover:scale-105 transition-transform duration-300 animate-fade-in-up delay-100">
+            <span class="text-3xl mb-2">🎯</span>
+            <span class="font-semibold mb-1">Lead Generation</span>
+            <span class="text-gray-600 text-center">Attract high-quality leads and convert them into customers.</span>
+        </li>
+        <li class="flex flex-col items-center bg-gradient-to-br from-blue-100 to-green-100 rounded-xl p-6 shadow-md hover:scale-105 transition-transform duration-300 animate-fade-in-up delay-200">
+            <span class="text-3xl mb-2">📊</span>
+            <span class="font-semibold mb-1">Measurable Results</span>
+            <span class="text-gray-600 text-center">Track performance and optimize campaigns for maximum ROI.</span>
+        </li>
+    </ul>
+</section>
+<!-- Force all text to white -->
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, button, select, div, section, ul, ol, td, th, strong, em, small {
+        color: #fff !important;
+    }
+    .text-gray-600, .text-gray-700, .text-gray-800, .text-gray-900, .text-blue-700, .text-blue-600, .text-blue-500, .text-blue-400, .text-blue-100, .text-green-600, .text-green-400, .text-green-500, .text-green-700, .text-black, .text-slate-800, .text-slate-900, .text-slate-700, .text-slate-100, .text-gray-500 {
+        color: #fff !important;
+    }
+    input, select, textarea {
+        color: #fff !important;
+    }
+    a {
+        color: #fff !important;
+    }
+    a:hover, a:focus {
+        color: #e0e7ef !important;
+    }
+</style>
+<!-- Pricing Table -->
+<section id="pricing" class="max-w-6xl mx-auto py-12 px-4 animate-fade-in-up">
+    <h2 class="text-2xl font-bold mb-8 text-center">Digital Marketing Pricing</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Basic Plan -->
+        <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:scale-105 transition-transform duration-300 animate-fade-in-up">
+            <h3 class="font-semibold text-xl mb-2">Starter</h3>
+            <span class="text-3xl font-bold text-blue-600 mb-4">₹9,999<span class="text-base font-normal text-gray-500">/mo</span></span>
+            <ul class="text-gray-700 mb-6 space-y-2 text-center">
+                <li>SEO Optimization (5 keywords)</li>
+                <li>2 Social Media Platforms</li>
+                <li>Monthly Analytics Report</li>
+                <li>Email Campaign Setup</li>
+            </ul>
+            <a href="#" class="bg-green-600 hover:bg-blue-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 animate-bounce">
+                Get Started
+            </a>
+        </div>
+        <!-- Standard Plan -->
+        <div class="bg-gradient-to-br from-blue-600 to-green-400 text-white rounded-xl shadow-2xl p-8 flex flex-col items-center scale-105 animate-fade-in-up delay-100">
+            <h3 class="font-semibold text-xl mb-2">Professional</h3>
+            <span class="text-3xl font-bold mb-4">₹19,999<span class="text-base font-normal text-blue-100">/mo</span></span>
+            <ul class="mb-6 space-y-2 text-center">
+                <li>SEO Optimization (15 keywords)</li>
+                <li>4 Social Media Platforms</li>
+                <li>Bi-Weekly Analytics Report</li>
+                <li>Advanced Email Campaigns</li>
+                <li>PPC Campaign Management</li>
+            </ul>
+            <a href="#" class="bg-white text-blue-700 hover:bg-blue-100 px-6 py-2 rounded-full font-semibold transition-all duration-300 animate-bounce">
+                Choose Plan
+            </a>
+        </div>
+        <!-- Premium Plan -->
+        <div class="bg-white rounded-xl shadow-lg p-8 flex flex-col items-center hover:scale-105 transition-transform duration-300 animate-fade-in-up delay-200">
+            <h3 class="font-semibold text-xl mb-2">Enterprise</h3>
+            <span class="text-3xl font-bold text-blue-600 mb-4">₹39,999<span class="text-base font-normal text-gray-500">/mo</span></span>
+            <ul class="text-gray-700 mb-6 space-y-2 text-center">
+                <li>SEO Optimization (Unlimited keywords)</li>
+                <li>All Social Media Platforms</li>
+                <li>Weekly Analytics & Strategy Calls</li>
+                <li>Full Funnel Email Automation</li>
+                <li>Dedicated Account Manager</li>
+            </ul>
+            <a href="contact.html" class="bg-green-600 hover:bg-blue-600 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 animate-bounce">
+                Contact Us
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Portfolio Section -->
+<section class="max-w-6xl mx-auto py-12 px-4 animate-fade-in">
+    <h2 class="text-2xl font-bold mb-8 text-center">Our Digital Marketing Work</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 animate-fade-in-up">
+            <img src="https://img.freepik.com/free-vector/social-media-marketing-landing-page_33099-1726.jpg?w=826&t=st=1718030000~exp=1718030600~hmac=example" alt="Social Media Campaign" class="rounded-lg mb-4 w-full h-40 object-cover">
+            <h3 class="font-semibold mb-2">Social Media Campaign</h3>
+            <p class="text-gray-600 text-sm">Increased engagement by 250% for a retail client through targeted Instagram and Facebook ads.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 animate-fade-in-up delay-100">
+            <img src="https://img.freepik.com/free-vector/seo-analytics-team-concept-illustration_114360-9203.jpg?w=826&t=st=1718030000~exp=1718030600~hmac=example" alt="SEO Success" class="rounded-lg mb-4 w-full h-40 object-cover">
+            <h3 class="font-semibold mb-2">SEO Success</h3>
+            <p class="text-gray-600 text-sm">Achieved top 3 Google rankings for a SaaS company, driving a 3x increase in organic leads.</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 animate-fade-in-up delay-200">
+            <img src="https://img.freepik.com/free-vector/email-marketing-campaign-concept-illustration_114360-739.jpg?w=826&t=st=1718030000~exp=1718030600~hmac=example" alt="Email Marketing" class="rounded-lg mb-4 w-full h-40 object-cover">
+            <h3 class="font-semibold mb-2">Email Marketing</h3>
+            <p class="text-gray-600 text-sm">Launched automated email workflows for an e-commerce brand, boosting repeat purchases by 40%.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Animations (Tailwind CSS custom classes) -->
+<style>
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes slide-down {
+    from { opacity: 0; transform: translateY(-40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes slide-up {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+@keyframes slide-right {
+    from { opacity: 0; transform: translateX(-40px);}
+    to { opacity: 1; transform: translateX(0);}
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-8px);}
+}
+.animate-fade-in { animation: fade-in 1s ease both; }
+.animate-fade-in-up { animation: fade-in-up 1s ease both; }
+.animate-slide-down { animation: slide-down 1s ease both; }
+.animate-slide-up { animation: slide-up 1s ease both; }
+.animate-slide-right { animation: slide-right 1s ease both; }
+.animate-bounce { animation: bounce 1.2s infinite; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+</style></ul>

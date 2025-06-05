@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All In One Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    /* Improve text visibility for all elements */
+    html, body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, button, select, div, section {
+        color: #1e293b !important; /* slate-800, dark readable */
+    }
+    .bg-white, .bg-gray-50, .bg-gray-100 {
+        color: #1e293b !important;
+    }
+    .text-white, .bg-blue-600, .bg-gradient-to-br, .bg-blue-700, .bg-green-600, .bg-green-700 {
+        color: #fff !important;
+    }
+    /* Make all headings white */
+    h1, h2, h3, h4, h5, h6, .section-title, .category-title, .project-title {
+        color: #fff !important;
+        text-shadow: 0 2px 8px #2228, 0 0 2px #2228;
+    }
+    .project-desc, .project-location, .project-price, .category {
+        color: #22223b !important;
+    }
+    .animated-btn {
+        color: #fff !important;
+        background: #4a4e69 !important;
+    }
+    .animated-btn:hover {
+        color: #22223b !important;
+        background: #9a8c98 !important;
+    }
+    /* Ensure nav links are visible and white */
+    nav a, nav .nav-anim-btn, nav span, nav .border-gray-300 {
+        color: #fff !important;
+    }
+    nav a:hover, nav .nav-anim-btn:hover {
+        color: #9a8c98 !important;
+    }
+    nav {
+        background: #22223b !important;
+        border-bottom: 1.5px solid #4a4e69 !important;
+    }
+    /* Modal text */
+    #auth-modal, #auth-modal input, #auth-modal button, #auth-modal h3 {
+        color: #1e293b !important;
+    }
+    #auth-modal .bg-white, #auth-modal .bg-section {
+        background: #fff !important;
+        color: #1e293b !important;
+    }
+</style>
+<!-- Custom Technical Theme Overrides -->
+ 
+<style>
+    :root {
+        --primary: #0ea5e9;         /* cyan-500 */
+        --secondary: #6366f1;       /* indigo-500 */
+        --accent: #06b6d4;          /* cyan-400 */
+        --bg-main: #0f172a;         /* slate-900 */
+        --bg-card: #1e293b;         /* slate-800 */
+        --bg-section: #111827;      /* slate-900 */
+        --text-main: #e0e7ef;       /* slate-100 */
+        --text-muted: #94a3b8;      /* slate-400 */
+        --border: #334155;          /* slate-700 */
+        --glass: rgba(30,41,59,0.7);
+    }
+    html, body {
+        background: var(--bg-main) !important;
+        color: var(--text-main) !important;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        letter-spacing: 0.01em;
+    }
+    nav, .bg-white, .bg-gray-50, .bg-gray-100 {
+        background: var(--bg-card) !important;
+        color: var(--text-main) !important;
+        border-bottom: 1px solid var(--border);
+    }
+    section, .bg-white, .bg-gray-50, .bg-gray-100 {
+        background: var(--bg-section) !important;
+        color: var(--text-main) !important;
+    }
+    .shadow-lg, .shadow-md, .shadow-2xl {
+        box-shadow: 0 4px 32px 0 rgba(6,182,212,0.10), 0 1.5px 8px 0 rgba(99,102,241,0.10) !important;
+    }
+    .rounded-2xl, .rounded-full, .rounded-md {
+        border-radius: 1.25rem !important;
+        border: 1px solid var(--border);
+        background: var(--glass);
+        backdrop-filter: blur(8px);
+    }
+    .text-blue-700, .text-blue-600, .text-blue-500, .text-blue-400 {
+        color: var(--primary) !important;
+    }
+    .text-gray-700, .text-gray-800, .text-gray-900 {
+        color: var(--text-main) !important;
+    }
+    .text-white {
+        color: #fff !important;
+    }
+    .bg-blue-600, .bg-blue-700, .bg-green-600, .bg-green-700, .bg-gradient-to-br, .bg-gradient-to-r {
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        color: #fff !important;
+        border: none !important;
+    }
+    .hover\:bg-blue-700:hover, .hover\:bg-green-700:hover {
+        background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%) !important;
+        color: #fff !important;
+    }
+    .border, .border-gray-300 {
+        border: 1.5px solid var(--border) !important;
+    }
+    input, select, textarea {
+        background: var(--bg-card) !important;
+        color: var(--text-main) !important;
+        border: 1.5px solid var(--border) !important;
+    }
+    input:focus, select:focus, textarea:focus {
+        outline: 2px solid var(--primary) !important;
+        background: var(--bg-section) !important;
+    }
+    .group-hover\:text-white:hover, .group-hover\:text-white:focus {
+        color: #fff !important;
+    }
+    .group-hover\:bg-gradient-to-br:hover, .group-hover\:bg-gradient-to-br:focus {
+        background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%) !important;
+        color: #fff !important;
+    }
+    .group-hover\:bg-gradient-to-br:hover .text-gray-800,
+    .group-hover\:bg-gradient-to-br:focus .text-gray-800 {
+        color: #fff !important;
+    }
+    .group-hover\:text-white:hover .text-gray-800,
+    .group-hover\:text-white:focus .text-gray-800 {
+        color: #fff !important;
+    }
+    .bg-gradient-to-br, .bg-gradient-to-r {
+        background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%) !important;
+        color: #fff !important;
+    }
+    .bg-gray-900, footer.bg-gray-900 {
+        background: var(--bg-card) !important;
+    }
+    .text-lg, .text-xl, .text-2xl, .text-3xl, .text-4xl, .font-bold, .font-semibold, .font-extrabold {
+        letter-spacing: 0.01em;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+    }
+    .shadow, .shadow-sm {
+        box-shadow: 0 2px 8px 0 rgba(14,165,233,0.08) !important;
+    }
+    .border, .border-gray-300, .border-white {
+        border-color: var(--border) !important;
+    }
+    .hover\:bg-gray-100:hover {
+        background: rgba(30,41,59,0.25) !important;
+        color: var(--primary) !important;
+    }
+    .bg-white\/90, .bg-white\/80 {
+        background: rgba(30,41,59,0.85) !important;
+        color: var(--text-main) !important;
+    }
+    .bg-black.bg-opacity-60 {
+        background: linear-gradient(120deg, rgba(14,165,233,0.7) 0%, rgba(99,102,241,0.7) 100%) !important;
+    }
+    /* Marquee logo grayscale on hover */
+    .grayscale {
+        filter: grayscale(1) brightness(0.8) contrast(1.2);
+        transition: filter 0.2s;
+    }
+    .grayscale:hover {
+        filter: none;
+    }
+    /* Custom scrollbar for technical look */
+    ::-webkit-scrollbar {
+        width: 8px;
+        background: var(--bg-card);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 8px;
+    }
+    /* Dropdowns */
+    .absolute.bg-white {
+        background: var(--bg-card) !important;
+        color: var(--text-main) !important;
+        border: 1.5px solid var(--border) !important;
+        box-shadow: 0 4px 24px 0 rgba(14,165,233,0.10);
+    }
+    /* Modal */
+    #auth-modal .bg-white {
+        background: var(--bg-section) !important;
+        color: var(--text-main) !important;
+        border: 1.5px solid var(--border) !important;
+    }
+    /* Buttons */
+    button, .rounded-full, .px-5, .py-2 {
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        color: #fff !important;
+        border: none !important;
+        box-shadow: 0 2px 8px 0 rgba(14,165,233,0.08) !important;
+        transition: background 0.2s, color 0.2s, transform 0.18s;
+    }
+    button:hover, .rounded-full:hover, .nav-anim-btn:hover, .nav-anim-btn:focus {
+        background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%) !important;
+        color: #fff !important;
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 6px 24px 0 rgba(14,165,233,0.18), 0 2px 12px 0 rgba(99,102,241,0.12) !important;
+    }
+    /* Hero section overlay for more technical look */
+    section.relative.min-h-screen .absolute.inset-0.bg-black {
+        background: linear-gradient(120deg, rgba(46, 37, 95, 0.7) 0%, rgba(41, 33, 72, 0.7) 100%) !important;
+    }
+    /* Section headings */
+    h2, h3, h1 {
+        color: var(--primary) !important;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+    }
+    /* Card hover effect */
+    .group:hover, .group:focus-within {
+        box-shadow: 0 8px 32px 0 rgba(14,165,233,0.18), 0 2px 12px 0 rgba(99,102,241,0.12) !important;
+        background: linear-gradient(120deg, var(--primary) 0%, var(--accent) 100%) !important;
+        color: #fff !important;
+    }
+    .group:hover a, .group:focus-within a {
+        color: #fff !important;
+    }
+    /* Ensure all links are readable */
+    a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    a:hover, a:focus {
+        color: var(--secondary);
+        text-decoration: underline;
+    }
+    /* Navbar button animation and uniform style */
+    .nav-anim-btn {
+        background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%) !important;
+        color: #fff !important;
+        border-radius: 9999px !important;
+        padding: 0.5rem 1.5rem !important;
+        font-weight: 600;
+        font-family: 'Montserrat', 'Fira Mono', 'JetBrains Mono', 'Consolas', monospace, sans-serif !important;
+        box-shadow: 0 2px 8px 0 rgba(14,165,233,0.08) !important;
+        border: none !important;
+        transition: background 0.2s, color 0.2s, transform 0.18s;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+    .nav-anim-btn:before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255,255,255,0.08);
+        border-radius: 9999px;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s;
+        z-index: 0;
+    }
+    .nav-anim-btn:hover:before, .nav-anim-btn:focus:before {
+        width: 220%;
+        height: 220%;
+    }
+    .nav-anim-btn span, .nav-anim-btn svg {
+        position: relative;
+        z-index: 2;
+    }
+    .nav-anim-btn:active {
+        transform: scale(0.97);
+    }
+    </style>
+    <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+    </style>
+    </head>
+    <body class="bg-gray-50 text-gray-800">
+    <!-- Adjusted global font color for better visibility -->
+    <style>
+        body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, button, select, div, section {
+            color: #1e293b !important; /* Tailwind's slate-800 for dark-on-light, improves contrast */
+        }
+        .bg-blue-600, .bg-gray-900, .text-white, .bg-gradient-to-br {
+            color: #fff !important;
+        }
+        .bg-white, .bg-gray-50, .bg-gray-100 {
+            color: #1e293b !important;
+        }
+    </style>
+    <!-- Navbar Brand: All In One Tech -->
+    <nav class="flex justify-between items-center px-6 py-4 shadow-sm bg-white">
+        <!-- Left: Logo and Company Name -->
+        <div class="flex items-center gap-2">
+            <span class="inline-flex items-center justify-center bg-gradient-to-br from-blue-600 to-green-400 rounded-full p-2 shadow-lg">
+                <!-- Example SVG logo icon -->
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="url(#logoGradient)" />
+                    <path d="M8 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="logoGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#2563eb"/>
+                            <stop offset="1" stop-color="#22d3ee"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <a href="index.html" class="inline-flex items-center focus:outline-none">
+                    <span class="border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 bg-white">
+                        All In One Tech
+                    </span>
+                </a>
+            </span>
+        </div>
+        <!-- Right: Navbar Links and Actions -->
+        <div class="flex gap-4 items-center ml-auto">
+            <a href="about us.html" class="nav-anim-btn">About Us</a>
+            <!-- Services Dropdown -->
+            <div class="relative group">
+                <button class="nav-anim-btn flex items-center gap-1">
+                    Services
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute top-12 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10 min-w-[180px]">
+                    <ul class="p-2">
+                        <li>
+                            <a href="wedD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Web Development</a>
+                        </li>
+                        <li>
+                            <a href="appD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">App Development</a>
+                        </li>
+                        <li>
+                            <a href="SEO.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">SEO Services</a>
+                        </li>
+                        <li>
+                            <a href="software.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Software Development</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Categories Dropdown -->
+            <div class="relative group">
+                <button class="nav-anim-btn flex items-center gap-1">
+                    Categories
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute top-12 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10 min-w-[180px]">
+                    <ul class="p-2">
+                        <li>
+                            <a href="graphicD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Graphic Design</a>
+                        </li>
+                        <li>
+                            <a href="archiD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Architecture Design</a>
+                        </li>
+                        <li>
+                            <a href="itsolu.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">IT Solutions</a>
+                        </li>
+                        <li>
+                            <a href="digimar.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Digital Marketing</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="contact.html" class="nav-anim-btn">Contact Us</a>
+            <!-- Sign In / Join Buttons -->
+            <button id="open-signin" class="nav-anim-btn bg-blue-600" style="background: linear-gradient(90deg, #2563eb 0%, #0ea5e9 100%) !important;">Sign In</button>
+            <button id="open-join" class="nav-anim-btn bg-green-600" style="background: linear-gradient(90deg, #22c55e 0%, #06b6d4 100%) !important;">Join</button>
+        </div>
+        <!-- Modal -->
+        <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+                <button id="close-auth-modal" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none">&times;</button>
+                <div class="flex justify-center mb-6">
+                    <button id="show-signin" class="px-4 py-2 font-semibold rounded-l-full bg-blue-600 text-white focus:outline-none">Sign In</button>
+                    <button id="show-join" class="px-4 py-2 font-semibold rounded-r-full bg-gray-200 text-blue-700 focus:outline-none">Join</button>
+                </div>
+                <!-- Sign In Form -->
+                <form id="signin-form">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Sign In</h3>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-full font-semibold hover:bg-blue-700 transition">Sign In</button>
+                </form>
+                <!-- Join Form -->
+                <form id="join-form" class="hidden">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Join</h3>
+                    <input type="text" placeholder="Name" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-700 transition">Join</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Dropdown hover and click support for Services and Categories
+            document.addEventListener('DOMContentLoaded', function () {
+                function setupDropdown(groupSelector) {
+                    const group = document.querySelector(groupSelector);
+                    if (!group) return;
+                    const button = group.querySelector('button');
+                    const dropdown = group.querySelector('div.absolute');
+                    let timeout;
+
+                    function openDropdown() {
+                        clearTimeout(timeout);
+                        dropdown.classList.remove('hidden');
+                    }
+                    function closeDropdown() {
+                        timeout = setTimeout(() => dropdown.classList.add('hidden'), 150);
+                    }
+
+                    group.addEventListener('mouseenter', openDropdown);
+                    group.addEventListener('mouseleave', closeDropdown);
+                    button.addEventListener('focus', openDropdown);
+                    button.addEventListener('blur', closeDropdown);
+                    dropdown.addEventListener('mouseenter', openDropdown);
+                    dropdown.addEventListener('mouseleave', closeDropdown);
+                }
+                setupDropdown('.group:nth-of-type(1)');
+                setupDropdown('.group:nth-of-type(2)');
+
+                // Modal logic
+                function showModal(form) {
+                    document.getElementById('auth-modal').classList.remove('hidden');
+                    document.getElementById('signin-form').classList.toggle('hidden', form !== 'signin');
+                    document.getElementById('join-form').classList.toggle('hidden', form !== 'join');
+                    document.getElementById('show-signin').classList.toggle('bg-blue-600', form === 'signin');
+                    document.getElementById('show-signin').classList.toggle('text-white', form === 'signin');
+                    document.getElementById('show-signin').classList.toggle('bg-gray-200', form !== 'signin');
+                    document.getElementById('show-signin').classList.toggle('text-blue-700', form !== 'signin');
+                    document.getElementById('show-join').classList.toggle('bg-green-600', form === 'join');
+                    document.getElementById('show-join').classList.toggle('text-white', form === 'join');
+                    document.getElementById('show-join').classList.toggle('bg-gray-200', form !== 'join');
+                    document.getElementById('show-join').classList.toggle('text-blue-700', form !== 'join');
+                }
+                document.getElementById('open-signin').onclick = function(e) {
+                    e.preventDefault();
+                    showModal('signin');
+                };
+                document.getElementById('open-join').onclick = function(e) {
+                    e.preventDefault();
+                    showModal('join');
+                };
+                document.getElementById('close-auth-modal').onclick = function() {
+                    document.getElementById('auth-modal').classList.add('hidden');
+                };
+                document.getElementById('show-signin').onclick = function() { showModal('signin'); };
+                document.getElementById('show-join').onclick = function() { showModal('join'); };
+                // Optional: prevent form submission for demo
+                document.getElementById('signin-form').onsubmit = function(e) { e.preventDefault(); };
+                document.getElementById('join-form').onsubmit = function(e) { e.preventDefault(); };
+            });
+        </script>
+    </nav>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Architecture Design Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts: Montserrat -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS for Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        :root {
+            --primary: #22223b;
+            --secondary: #4a4e69;
+            --accent: #9a8c98;
+            --bg: #f2e9e4;
+            --white: #fff;
+            --shadow: 0 2px 8px rgba(34,34,59,0.07);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--primary);
+            min-height: 100vh;
+        }
+        header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--secondary);
+            margin-left: 2rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.2s;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+        }
+        nav a:hover {
+            color: var(--accent);
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            letter-spacing: 1px;
+        }
+        .categories {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .category {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            flex: 1 1 300px;
+            min-width: 280px;
+            transition: transform 0.2s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .category:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(34,34,59,0.13);
+        }
+        .category-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .project-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .project-card:hover {
+            box-shadow: 0 8px 24px rgba(34,34,59,0.13);
+            transform: translateY(-4px) scale(1.01);
+        }
+        .project-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: var(--bg);
+        }
+        .project-info {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .project-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--secondary);
+        }
+        .project-desc {
+            font-size: 0.97rem;
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+        }
+        .project-price {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .project-location {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        .animated-btn {
+            background: var(--secondary);
+            color: var(--white);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(74,78,105,0.07);
+            outline: none;
+            margin-top: 0.5rem;
+            align-self: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+        .animated-btn::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(154,140,152,0.15);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s, height 0.4s;
+            z-index: 0;
+        }
+        .animated-btn:hover {
+            background: var(--accent);
+            color: var(--primary);
+            transform: translateY(-2px) scale(1.03);
+            box-shadow: 0 4px 16px rgba(154,140,152,0.13);
+        }
+        .animated-btn:hover::after {
+            width: 200%;
+            height: 200%;
+        }
+        /* Map Section */
+        #map {
+            width: 100%;
+            height: 350px;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+        }
+        /* Responsive */
+        @media (max-width: 800px) {
+            .categories {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .projects {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body></body>
+    <header style="justify-content: center;">
+        <div class="logo">ArchDesign</div>
+    </header>
+
+    <main>
+        <section id="categories">
+            <div class="section-title">Our Expertise</div>
+            <div class="categories">
+                <div class="category">
+                    <div class="category-title">Residential</div>
+                    <div style="color:#333;">Modern homes, villas, apartments, and sustainable living spaces.</div>
+                </div>
+                <div class="category">
+                    <div class="category-title">Commercial</div>
+                    <div style="color:#333;">Office buildings, retail spaces, and innovative work environments.</div>
+                </div>
+                <div class="category">
+                    <div class="category-title">Public Spaces</div>
+                    <div style="color:#333;">Parks, museums, and community centers with unique identities.</div>
+                </div>
+            </div>
+        </section>
+        <section id="projects">
+            <div class="section-title">Featured Projects</div>
+            <div class="projects">
+                <div class="project-card" data-lat="40.7128" data-lng="-74.0060">
+                    <img class="project-img" src="images/vij.jpeg">
+                    <div class="project-info">
+                        <div>
+                            <div class="project-title">Skyline Villa</div>
+                            <div class="project-desc" style="color:#333;">A modern villa with open spaces and eco-friendly materials, designed using AI-driven concepts.</div>
+                            <div class="project-location" style="color:#555;">New York, USA</div>
+                            <div class="project-price" style="color:#9a8c98;">$1,200,000</div>
+                        </div>
+                        <button class="animated-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="project-card" data-lat="51.5074" data-lng="-0.1278">
+                    <img class="project-img" src="images/ur.jpeg" alt="Office Tower AI Sample">
+                    <div class="project-info">
+                        <div>
+                            <div class="project-title">Urban Office Tower</div>
+                            <div class="project-desc" style="color:#333;">A sustainable office tower with smart energy systems and AI-optimized layouts.</div>
+                            <div class="project-location" style="color:#555;">London, UK</div>
+                            <div class="project-price" style="color:#9a8c98;">$3,500,000</div>
+                        </div>
+                        <button class="animated-btn">View Details</button>
+                    </div>
+                </div>
+                <div class="project-card" data-lat="35.6895" data-lng="139.6917">
+                    <img class="project-img" src="images/har.jpeg" alt="Community Center AI Sample">
+                    <div class="project-info">
+                        <div>
+                            <div class="project-title">Harmony Community Center</div>
+                            <div class="project-desc" style="color:#333;">A vibrant public space blending tradition and innovation, designed with AI assistance.</div>
+                            <div class="project-location" style="color:#555;">Tokyo, Japan</div>
+                            <div class="project-price" style="color:#9a8c98;">$900,000</div>
+                        </div>
+                        <button class="animated-btn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <section id="about">
+            <div class="section-title">About Our Work</div>
+            <p style="color: #22223b; font-size: 1.08rem; line-height: 1.7; background: #fff; border-radius: 8px; padding: 1.2rem 1rem; box-shadow: 0 2px 8px rgba(34,34,59,0.07);">
+                At ArchDesign Studio, we blend creativity, technology, and sustainability to deliver exceptional architecture. Our AI-powered design process ensures efficiency, innovation, and a unique touch for every project. Explore our portfolio to see how we shape spaces across the globe.
+            </p>
+        </section>  <br>
+          <br>
+        <section id="map-section">
+            <div class="section-title">Our Projects Around the World</div>
+            <div id="map"></div>
+        </section>
+         <br>
+          <br>
+
+    </main>
+    <!-- Leaflet JS for Map -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize map
+        var map = L.map('map').setView([20, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add project markers
+        document.querySelectorAll('.project-card').forEach(function(card) {
+            var lat = card.getAttribute('data-lat');
+            var lng = card.getAttribute('data-lng');
+            var title = card.querySelector('.project-title').textContent;
+            var img = card.querySelector('.project-img').src;
+            var price = card.querySelector('.project-price').textContent;
+            var desc = card.querySelector('.project-desc').textContent;
+            var popupContent = `
+                <div style="font-family:Montserrat,sans-serif;min-width:180px;">
+                    <img src="${img}" alt="${title}" style="width:100%;border-radius:6px;margin-bottom:8px;">
+                    <strong>${title}</strong><br>
+                    <span style="color:#9a8c98;">${price}</span><br>
+                    <span style="font-size:0.95em;">${desc}</span>
+                </div>
+            `;
+            L.marker([lat, lng]).addTo(map).bindPopup(popupContent);
+        });
+    </script>
+</body>
+</html>

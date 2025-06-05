@@ -1,0 +1,838 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All In One Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Technical Theme Fonts and Colors -->
+<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --tech-bg: #10172a;
+        --tech-bg-light: #1a233a;
+        --tech-card: #18213a;
+        --tech-accent: #00e6d0;
+        --tech-accent2: #3b82f6;
+        --tech-text: #e2e8f0;
+        --tech-text-secondary: #94a3b8;
+        --tech-border: #22304a;
+        --tech-shadow: 0 4px 24px 0 rgba(0, 230, 208, 0.08);
+    }
+    html, body {
+        background: linear-gradient(135deg, var(--tech-bg) 60%, var(--tech-bg-light) 100%) !important;
+        font-family: 'Fira Mono', 'Montserrat', 'Segoe UI', Arial, sans-serif !important;
+        color: var(--tech-text) !important;
+        letter-spacing: 0.01em;
+    }
+    /* Navbar override for technical look */
+    nav {
+        background: var(--tech-bg) !important;
+        box-shadow: 0 2px 12px rgba(0,230,208,0.05);
+        border-bottom: 1.5px solid var(--tech-border);
+    }
+    nav a, nav button, nav select, nav span, nav label {
+        color: var(--tech-text) !important;
+        font-family: 'Fira Mono', 'Montserrat', monospace !important;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+    nav a:hover, nav button:hover, nav select:focus {
+        color: var(--tech-accent) !important;
+    }
+    nav .bg-blue-600, nav .bg-green-600 {
+        background: linear-gradient(90deg, var(--tech-accent2) 60%, var(--tech-accent) 100%) !important;
+        color: #fff !important;
+        border: none;
+    }
+    nav .bg-white, nav .bg-gray-50, nav .bg-gray-100 {
+        background: var(--tech-bg-light) !important;
+        color: var(--tech-text) !important;
+    }
+    nav select {
+        background: var(--tech-bg-light) !important;
+        border: 1.5px solid var(--tech-border) !important;
+        color: var(--tech-text) !important;
+    }
+    /* Modal technical style */
+    #auth-modal .bg-white {
+        background: var(--tech-bg-light) !important;
+        color: var(--tech-text) !important;
+        border: 1.5px solid var(--tech-border);
+        box-shadow: var(--tech-shadow);
+    }
+    #auth-modal input, #auth-modal button {
+        background: var(--tech-card) !important;
+        color: var(--tech-text) !important;
+        border: 1.5px solid var(--tech-border) !important;
+    }
+    #auth-modal input:focus, #auth-modal button:focus {
+        border-color: var(--tech-accent2) !important;
+        outline: none;
+    }
+    #auth-modal button {
+        background: linear-gradient(90deg, var(--tech-accent2) 60%, var(--tech-accent) 100%) !important;
+        color: #fff !important;
+        font-family: 'Fira Mono', monospace !important;
+    }
+    /* Remove default body color override from below */
+    body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, button, select, div, section {
+        color: var(--tech-text) !important;
+        font-family: 'Fira Mono', 'Montserrat', monospace !important;
+    }
+    /* Remove white backgrounds from dropdowns */
+    .group .absolute, .group .bg-white {
+        background: var(--tech-card) !important;
+        color: var(--tech-text) !important;
+        border: 1.5px solid var(--tech-border) !important;
+    }
+    .group .hover\:bg-gray-100:hover, .group .hover\:bg-gray-100:focus {
+        background: #22304a !important;
+        color: var(--tech-accent) !important;
+    }
+    /* Hide conflicting background color rules */
+    .bg-white, .bg-gray-50, .bg-gray-100 {
+        background: var(--tech-bg-light) !important;
+        color: var(--tech-text) !important;
+    }
+    /* Technical scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+        background: var(--tech-bg-light);
+    }
+    ::-webkit-scrollbar-thumb {
+        background: var(--tech-accent2);
+        border-radius: 4px;
+    }
+</style>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<!-- Adjusted global font color for better visibility -->
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, button, select, div, section {
+        color: #1e293b !important; /* Tailwind's slate-800 for dark-on-light, improves contrast */
+    }
+    .bg-blue-600, .bg-gray-900, .text-white, .bg-gradient-to-br {
+        color: #fff !important;
+    }
+    .bg-white, .bg-gray-50, .bg-gray-100 {
+        color: #1e293b !important;
+    }
+</style>
+<!-- Navbar Brand: All In One Tech -->
+<nav class="flex justify-between items-center px-6 py-4 shadow-sm bg-white">
+    <!-- Left: Logo and Company Name -->
+    <div class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center bg-gradient-to-br from-blue-600 to-green-400 rounded-full p-2 shadow-lg">
+            <!-- Example SVG logo icon -->
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="url(#logoGradient)" />
+                <path d="M8 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="logoGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#2563eb"/>
+                        <stop offset="1" stop-color="#22d3ee"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+      <a href="index.html" class="inline-flex items-center focus:outline-none">
+        <span class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-green-400 to-blue-400 bg-clip-text text-transparent tracking-tight drop-shadow">
+            All In One Tech
+        </span>
+    </a>
+        </span>
+    </div>
+    <!-- Right: Navbar Links and Actions -->
+    
+    <script>
+      // Dropdown hover and click support for Services and Categories
+      document.addEventListener('DOMContentLoaded', function () {
+        function setupDropdown(groupSelector) {
+          const group = document.querySelector(groupSelector);
+          if (!group) return;
+          const button = group.querySelector('button');
+          const dropdown = group.querySelector('div.absolute');
+          let timeout;
+
+          function openDropdown() {
+            clearTimeout(timeout);
+            dropdown.classList.remove('hidden');
+          }
+          function closeDropdown() {
+            timeout = setTimeout(() => dropdown.classList.add('hidden'), 150);
+          }
+
+          group.addEventListener('mouseenter', openDropdown);
+          group.addEventListener('mouseleave', closeDropdown);
+          button.addEventListener('focus', openDropdown);
+          button.addEventListener('blur', closeDropdown);
+          dropdown.addEventListener('mouseenter', openDropdown);
+          dropdown.addEventListener('mouseleave', closeDropdown);
+        }
+        setupDropdown('.group:nth-of-type(1)');
+        setupDropdown('.group:nth-of-type(2)');
+      });
+    </script>
+    <div class="flex gap-6 items-center">
+         <a href="about us.html" class="text-gray-700 hover:text-blue-600">About Us</a>
+        <div class="relative group">
+            <div>
+                <button class="flex items-center gap-1 text-gray-700 hover:text-blue-600">
+                    Services
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute top-8 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10">
+                    <ul class="p-2">
+                        <li>
+                            <a href="wedD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Web Development</a>
+                        </li>
+                        <li>
+                            <a href="appD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">App Development</a>
+                        </li>
+                        <li>
+                            <a href="SEO.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">SEO Services</a>
+                        </li>
+                        <li>
+                            <a href="software.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Software Development</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<div class="relative group">
+    <div>
+        <button class="flex items-center gap-1 text-gray-700 hover:text-blue-600">
+            Categories
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" />
+            </svg>
+        </button>
+        <div class="absolute top-8 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10">
+            <ul class="p-2">
+                <li>
+                    <a href="graphicD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Graphic Design</a>
+                </li>
+                <li>
+                    <a href="archiD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Architecture Design</a>
+                </li>
+                <li>
+                    <a href="itsolu.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">IT Solutions</a>
+                </li>
+                <li>
+                    <a href="digimar.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Digital Marketing</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact Us</a>
+ 
+        <!-- Sign In / Join Buttons -->
+        <a href="signin.html" class="px-5 py-2 rounded-full bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition">Sign In</a>
+        <a href="signin.html" class="px-5 py-2 rounded-full bg-green-600 text-white font-semibold shadow hover:bg-green-700 transition">Join</a>
+        <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+                <button id="close-auth-modal" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none">&times;</button>
+                <div class="flex justify-center mb-6">
+                    <button id="show-signin" class="px-4 py-2 font-semibold rounded-l-full bg-blue-600 text-white focus:outline-none">Sign In</button>
+                    <button id="show-join" class="px-4 py-2 font-semibold rounded-r-full bg-gray-200 text-blue-700 focus:outline-none">Join</button>
+                </div>
+                <!-- Sign In Form -->
+                <form id="signin-form">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Sign In</h3>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-700 transition">Sign In</button>
+                </form>
+                <!-- Join Form -->
+                <form id="join-form" class="hidden">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Join</h3>
+                    <input type="text" placeholder="Name" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-700 transition">Join</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Modal logic
+            function showModal(form) {
+                document.getElementById('auth-modal').classList.remove('hidden');
+                document.getElementById('signin-form').classList.toggle('hidden', form !== 'signin');
+                document.getElementById('join-form').classList.toggle('hidden', form !== 'join');
+                document.getElementById('show-signin').classList.toggle('bg-blue-600', form === 'signin');
+                document.getElementById('show-signin').classList.toggle('text-white', form === 'signin');
+                document.getElementById('show-signin').classList.toggle('bg-gray-200', form !== 'signin');
+                document.getElementById('show-signin').classList.toggle('text-blue-700', form !== 'signin');
+                document.getElementById('show-join').classList.toggle('bg-blue-600', form === 'join');
+                document.getElementById('show-join').classList.toggle('text-white', form === 'join');
+                document.getElementById('show-join').classList.toggle('bg-gray-200', form !== 'join');
+                document.getElementById('show-join').classList.toggle('text-blue-700', form !== 'join');
+            }
+            document.querySelectorAll('a[href="signin.html"]').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showModal(this.textContent.trim().toLowerCase() === 'join' ? 'join' : 'signin');
+                });
+            });
+            document.getElementById('close-auth-modal').onclick = function() {
+                document.getElementById('auth-modal').classList.add('hidden');
+            };
+            document.getElementById('show-signin').onclick = function() { showModal('signin'); };
+            document.getElementById('show-join').onclick = function() { showModal('join'); };
+            // Optional: prevent form submission for demo
+            document.getElementById('signin-form').onsubmit = function(e) { e.preventDefault(); };
+            document.getElementById('join-form').onsubmit = function(e) { e.preventDefault(); };
+        </script>
+        
+    </div>
+</nav>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Development - All In One Tech Company</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Google Fonts for a modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Updated background color for page and cart sidebar, removed animations, added cursor move effect -->
+    <style>
+        body {
+            background: linear-gradient(135deg, #eaf6fb 60%, #cbe7f6 100%) !important;
+        }
+        #cartSidebar {
+            background: #f7fbff !important;
+            color: #222 !important;
+            box-shadow: -2px 0 24px rgba(74,144,226,0.10);
+            border-left: 2px solid #4a90e2;
+        }
+        .cart-header h2 {
+            color: #4a90e2 !important;
+        }
+        .cart-item {
+            border-bottom: 1px solid #e0e7ef !important;
+        }
+        .cart-footer {
+            color: #357ab8 !important;
+        }
+        /* Remove all animations and transitions */
+        * {
+            transition: none !important;
+            animation: none !important;
+        }
+        /* Custom cursor animation on mouse move */
+        #cursor-effect {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: rgba(74,144,226,0.18);
+            box-shadow: 0 0 16px 8px rgba(74,144,226,0.10);
+            transform: translate(-50%, -50%) scale(1);
+            z-index: 9999;
+            transition: transform 0.15s cubic-bezier(.4,2,.6,1), background 0.2s;
+        }
+    </style>
+   <script>
+        // Animate sections on mouse enter/leave
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('section, .services').forEach(function(sec) {
+                sec.addEventListener('mouseenter', function() {
+                    sec.classList.add('animate__animated', 'animate__pulse');
+                });
+                sec.addEventListener('mouseleave', function() {
+                    sec.classList.remove('animate__animated', 'animate__pulse');
+                });
+            });
+            // Animate nav buttons on hover
+            document.querySelectorAll('nav button').forEach(function(btn) {
+                btn.addEventListener('mouseenter', function() {
+                    btn.classList.add('animate__animated', 'animate__rubberBand');
+                });
+                btn.addEventListener('mouseleave', function() {
+                    btn.classList.remove('animate__animated', 'animate__rubberBand');
+                });
+            });
+            // Animate feature and gallery items
+            document.querySelectorAll('.feature, .gallery-item').forEach(function(item) {
+                item.addEventListener('mouseenter', function() {
+                    item.classList.add('animate__animated', 'animate__jello');
+                });
+                item.addEventListener('mouseleave', function() {
+                    item.classList.remove('animate__animated', 'animate__jello');
+                });
+            });
+        });
+    </script>
+
+    <style>
+        header {
+            justify-content: center !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+        /* Move cart to the right */
+        header {
+            position: relative;
+        }
+        .cart {
+            position: absolute;
+            right: 48px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .heading {
+            margin: 0 auto;
+        }
+    </style>
+    <style>
+        :root {
+            --primary: #e3f0fc;
+            --secondary: #b3d8f7;
+            --accent: #4a90e2;
+            --white: #fff;
+        }
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 60%, var(--secondary) 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            transition: background 0.3s;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 32px 48px 16px 48px;
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(74,144,226,0.07);
+        }
+        .heading {
+            font-size: 2.5rem;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .cart {
+            position: relative;
+            font-size: 1.5rem;
+            color: var(--accent);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .cart:hover {
+            transform: scale(1.1) rotate(-8deg);
+        }
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -12px;
+            background: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            padding: 2px 8px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 36px 32px;
+        }
+        .item-card {
+            background: var(--white);
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(74,144,226,0.10);
+            padding: 24px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: box-shadow 0.2s, transform 0.2s;
+            position: relative;
+            min-height: 370px;
+        }
+        .item-card:hover {
+            box-shadow: 0 8px 32px rgba(74,144,226,0.18);
+            transform: translateY(-6px) scale(1.02);
+        }
+        .item-image {
+            width: 140px;
+            height: 140px;
+            background: var(--secondary);
+            border-radius: 12px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        .item-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            background: #fff;
+        }
+        .add-image-btn {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background 0.2s;
+        }
+        .add-image-btn:hover {
+            background: #357ab8;
+        }
+        .item-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        .item-price {
+            font-size: 1.1rem;
+            color: #2d5c8a;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+        .item-desc {
+            font-size: 1rem;
+            color: #4a4a4a;
+            margin-bottom: 18px;
+            text-align: center;
+            min-height: 110px;
+        }
+        .add-cart-btn {
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            padding: 10px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(74,144,226,0.08);
+        }
+        .add-cart-btn:hover {
+            background: #357ab8;
+            transform: scale(1.05);
+        }
+        /* Cursor animation */
+        body::before {
+            content: '';
+            position: fixed;
+            left: 0; top: 0;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            pointer-events: none;
+            background: rgba(74,144,226,0.18);
+            box-shadow: 0 0 16px 8px rgba(74,144,226,0.10);
+            transform: translate(-50%, -50%) scale(1);
+            transition: transform 0.15s cubic-bezier(.4,2,.6,1), background 0.2s;
+            z-index: 9999;
+        }
+        @media (max-width: 900px) {
+            .items-grid {
+                grid-template-columns: 1fr;
+            }
+            main {
+                padding: 0 8px;
+            }
+        }
+       #cartSidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 320px;
+    height: 100vh;
+    background: #fff;
+    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s ease;
+    z-index: 10000;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+#cartSidebar.open {
+    right: 0;
+}
+
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.cart-header h2 {
+    margin: 0;
+    color: #4a90e2;
+}
+
+#closeCart {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.cart-items {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 16px;
+}
+
+.cart-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.cart-footer {
+    font-size: 1.1rem;
+    text-align: right;
+    font-weight: 600;
+    color: #333;
+}
+.remove-btn {
+    margin-top: 8px;
+    padding: 6px 12px;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background-color 0.2s ease;
+}
+
+.remove-btn:hover {
+    background-color: #d9363e;
+}
+
+    </style>
+</head>
+
+<header>
+    <a href="#" class="heading">Software Development</a>
+    <div class="cart" id="cartIcon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+</header>
+
+<body>
+    
+    <main>
+        <!-- Optional: Add a hidden file input for image upload -->
+        <input type="file" id="imageUpload" accept="image/*" style="display:none">
+
+        
+        <div class="items-grid">
+           <!-- Item 1 -->
+<div class="item-card">
+    <div class="item-image">
+        <!-- Image added here -->
+        <img src="images/sd1.jpg" alt="Custom Mobile App Development" class="item-img">
+       
+    </div>
+    <div class="item-title"> Mobile App Development </div>
+    <div class="item-price">$299</div>
+    <div class="item-desc">
+       Design and development of high-performance iOS and Android apps. Focused on user experience, speed, and scalability for both startups and enterprises.  </div>
+    <button class="add-cart-btn">Add to Cart</button>
+</div>
+
+            <!-- Item 2 -->
+           <div class="item-card">
+    <div class="item-image">
+        <!-- Image added here -->
+        <img src="images/sd2.jpg" alt=" UI/UX Design Services" class="item-img">
+                </div>
+                <div class="item-title">  Custom Software Development</div>
+                <div class="item-price">$499</div>
+                <div class="item-desc">
+                    Tailor-made software built specifically to meet your business needs. Ideal for companies looking for unique solutions not available in off-the-shelf products. </div>
+                 <button class="add-cart-btn" >Add to Cart</button>
+            </div>
+            <!-- Item 3 -->
+            <div class="item-card">
+    <div class="item-image">
+        <!-- Image added here -->
+        <img src="images/sd3.jpg" alt="Cross-Platform App Development" class="item-img">
+                </div>
+                <div class="item-title">Web Application Development</div>
+                <div class="item-price">$799</div>
+                <div class="item-desc">
+                   Creation of dynamic, responsive web apps using modern frameworks. These apps are built for efficiency, interactivity, and cross-device compatibility.
+
+
+                </div>
+                <button class="add-cart-btn" >Add to Cart</button>
+            </div>
+            <!-- Item 4 -->
+             <div class="item-card">
+    <div class="item-image">
+        <!-- Image added here -->
+        <img src="images/sd4.webp" alt="App Maintenance and Support" class="item-img">
+                </div>
+                <div class="item-title"> SaaS Product Development</div>
+                <div class="item-price">$399</div>
+                <div class="item-desc">
+                  End-to-end development of cloud-based Software as a Service platforms. Scalable, secure, and built to serve multiple users with real-time data access. </div>
+                <button class="add-cart-btn" >Add to Cart</button>
+            </div>
+            <!-- Item 5 -->
+            <div class="item-card">
+    <div class="item-image">
+        <!-- Image added here -->
+        <img src="images/sd5.jpg" alt="Backend Development and API Integration" class="item-img">
+                </div>
+                <div class="item-title">API Development & Integration</div>
+                <div class="item-price">$149</div>
+                <div class="item-desc">
+Build and integrate secure APIs to connect your software with other platforms or services. This ensures smooth data exchange and extends functionality.
+
+..     </div>
+                <button class="add-cart-btn" >Add to Cart</button>
+            </div>
+            <!-- Item 6 -->
+             <div class="item-card">
+    <div class="item-image">
+        <!-- Image added here -->
+        <img src="images/sd6.jpg" alt="App Store Deployment and Optimization" class="item-img">
+                </div>
+                <div class="item-title">Maintenance & Support Services</div>
+                <div class="item-price">$59/mo</div>
+                <div class="item-desc">
+Continuous monitoring, bug fixing, updates, and performance enhancements. Keeps your software running smoothly and up-to-date with evolving needs.
+
+
+</div>
+            <button class="add-cart-btn" >Add to Cart</button>
+            </div>
+        </div>
+    </main>
+    
+
+<script>
+window.onload = function () {
+    let cartCount = 0;
+    let cartItemsArray = [];
+
+    function addToCart(title = "Item", price = "$0") {
+        cartCount++;
+        document.getElementById('cartCount').textContent = cartCount;
+
+        const numericPrice = parseFloat(price.replace(/[^0-9.]/g, '')) || 0;
+        cartItemsArray.push({ title, price: numericPrice });
+
+        renderCartItems();
+    }
+
+    function toggleCart() {
+        document.getElementById('cartSidebar').classList.toggle('open');
+    }
+function renderCartItems() {
+    const container = document.getElementById('cartItems');
+    const totalDisplay = document.getElementById('totalAmount');
+
+    if (cartItemsArray.length === 0) {
+        container.innerHTML = `<p>Your cart is empty.</p>`;
+        totalDisplay.textContent = '0';
+        return;
+    }
+
+    let total = 0;
+
+    // Generate HTML for cart items
+    container.innerHTML = cartItemsArray.map((item, index) => {
+        total += item.price;
+        return `
+            <div class="cart-item" data-index="${index}">
+                <strong>${item.title}</strong><br>
+                <span>$${item.price.toFixed(2)}</span><br>
+                <button class="remove-btn" data-index="${index}">Remove</button>
+            </div>
+        `;
+    }).join('');
+
+    // Update total price
+    totalDisplay.textContent = total.toFixed(2);
+
+    // Add event listeners to the new remove buttons
+    document.querySelectorAll('.remove-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const index = parseInt(e.target.getAttribute('data-index'));
+            cartItemsArray.splice(index, 1); // Remove item
+            cartCount--;
+            document.getElementById('cartCount').textContent = cartCount;
+            renderCartItems(); // Re-render cart
+        });
+    });
+}
+
+    // Event Listeners
+    document.getElementById('cartIcon').addEventListener('click', toggleCart);
+    document.getElementById('closeCart').addEventListener('click', toggleCart);
+
+    document.querySelectorAll('.item-card').forEach(card => {
+        const button = card.querySelector('.add-cart-btn');
+        const title = card.querySelector('.item-title').textContent;
+        const price = card.querySelector('.item-price').textContent;
+        button.addEventListener('click', () => addToCart(title, price));
+    });
+};
+</script>
+
+<!-- Cart Sidebar -->
+<div id="cartSidebar">
+    <div class="cart-header">
+        <h2>Your Cart</h2>
+        <button id="closeCart">&times;</button>
+    </div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-footer">
+        <strong>Total: $<span id="totalAmount">0</span></strong>
+    </div>
+</div>
+
+</body>
+</html>

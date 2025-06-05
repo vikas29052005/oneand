@@ -1,0 +1,779 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All In One Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Technical Theme Styles (do not change navbar or global font) -->
+<style>
+    :root {
+        --tech-bg: #10172a;
+        --tech-surface: #18223a;
+        --tech-card: #232f4b;
+        --tech-accent: #38bdf8;
+        --tech-accent2: #818cf8;
+        --tech-text: #e0e7ef;
+        --tech-muted: #cbd5e1;
+        --tech-border: #334155;
+        --tech-black: #fff;
+    }
+    /* Main background and text */
+    body {
+        background: var(--tech-bg) !important;
+        color: var(--tech-text) !important;
+    }
+    /* Section backgrounds */
+    main section,
+    .services,
+    section[style*="background:var(--white)"] {
+        background: var(--tech-surface) !important;
+        border-radius: 18px !important;
+        box-shadow: 0 2px 16px rgba(30,41,59,0.18) !important;
+        border: 1px solid var(--tech-border) !important;
+        color: var(--tech-text) !important;
+    }
+    /* Features grid */
+    .features {
+        gap: 2rem !important;
+    }
+    .feature {
+        background: var(--tech-card) !important;
+        color: var(--tech-text) !important;
+        border: 1px solid var(--tech-border) !important;
+        box-shadow: 0 2px 12px rgba(56,189,248,0.07) !important;
+        transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .feature:hover {
+        box-shadow: 0 8px 32px rgba(56,189,248,0.13) !important;
+        background: linear-gradient(120deg, var(--tech-card) 80%, var(--tech-accent2) 100%) !important;
+    }
+    .feature h3 {
+        color: var(--tech-accent) !important;
+    }
+    .feature p {
+        color: var(--tech-muted) !important;
+    }
+    .feature img {
+        filter: drop-shadow(0 2px 8px var(--tech-accent2));
+        background: #1e293b;
+        border-radius: 8px;
+        padding: 8px;
+    }
+    /* Gallery */
+    .gallery-item {
+        background: var(--tech-card) !important;
+        color: var(--tech-text) !important;
+        border: 1px solid var(--tech-border) !important;
+        box-shadow: 0 2px 12px rgba(129,140,248,0.09) !important;
+    }
+    .gallery-item:hover {
+        box-shadow: 0 8px 32px rgba(56,189,248,0.13) !important;
+        background: linear-gradient(120deg, var(--tech-card) 80%, var(--tech-accent2) 100%) !important;
+    }
+    .gallery-item span {
+        color: var(--tech-muted) !important;
+    }
+    .gallery-item img {
+        background: #1e293b !important;
+        border: 2px solid var(--tech-accent2);
+    }
+    /* Pricing cards */
+    section[style*="background:var(--white)"] > div[style*="display:flex"] > div {
+        background: var(--tech-card) !important;
+        color: var(--tech-text) !important;
+        border: 1px solid var(--tech-border) !important;
+        box-shadow: 0 2px 12px rgba(56,189,248,0.07) !important;
+    }
+    section[style*="background:var(--white)"] h3,
+    section[style*="background:var(--white)"] div[style*='color:var(--accent)'] {
+        color: var(--tech-accent) !important;
+    }
+    section[style*="background:var(--white)"] p,
+    section[style*="background:var(--white)"] ul,
+    section[style*="background:var(--white)"] li,
+    section[style*="background:var(--white)"] strong {
+        color: var(--tech-muted) !important;
+    }
+    section[style*="background:var(--white)"] ul,
+    section[style*="background:var(--white)"] li {
+        color: var(--tech-text) !important;
+    }
+    section[style*="background:var(--white)"] strong {
+        color: var(--tech-accent2) !important;
+    }
+    /* Section headings */
+    h1, h2, h3 {
+        color: var(--tech-accent) !important;
+        letter-spacing: 1px;
+    }
+    /* Header */
+    header {
+        background: var(--tech-surface) !important;
+        color: var(--tech-accent) !important;
+        border-bottom: 1px solid var(--tech-border) !important;
+        box-shadow: 0 2px 8px rgba(56,189,248,0.04) !important;
+    }
+    header p {
+        color: var(--tech-muted) !important;
+    }
+    /* Services section */
+    .services {
+        background: var(--tech-card) !important;
+        color: var(--tech-text) !important;
+        border: 1px solid var(--tech-border) !important;
+    }
+    .services h2 {
+        color: var(--tech-accent2) !important;
+    }
+    .services p {
+        color: var(--tech-muted) !important;
+    }
+    /* Links */
+    a, a:visited {
+        color: var(--tech-accent) !important;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+    a:hover {
+        color: var(--tech-accent2) !important;
+        text-decoration: underline;
+    }
+    /* Remove double border on focus */
+    *:focus {
+        outline: 2px solid var(--tech-accent2);
+        outline-offset: 2px;
+    }
+    /* Ensure all text is visible and high contrast */
+    p, li, ul, span, div, strong {
+        color: var(--tech-text) !important;
+    }
+    /* Fix for muted text */
+    .feature p,
+    .gallery-item span,
+    .services p,
+    section[style*="background:var(--white)"] p,
+    section[style*="background:var(--white)"] ul,
+    section[style*="background:var(--white)"] li {
+        color: var(--tech-muted) !important;
+    }
+    /* Extra: force white for very dark backgrounds if needed */
+    section[style*="background:var(--tech-bg)"] *,
+    section[style*="background:var(--tech-surface)"] * {
+        color: var(--tech-text) !important;
+    }
+</style>
+  <style>
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<!-- Adjusted global font color for better visibility -->
+<style>
+    body, p, span, a, li, label, input, button, select, div, section {
+        color: #1e293b !important; /* Tailwind's slate-800 for dark-on-light, improves contrast */
+    }
+    .bg-blue-600, .bg-gray-900, .text-white, .bg-gradient-to-br {
+        color: #fff !important;
+    }
+    .bg-white, .bg-gray-50, .bg-gray-100 {
+        color: #1e293b !important;
+    }
+</style>
+<!-- Navbar Brand: All In One Tech -->
+<nav class="flex justify-between items-center px-6 py-4 shadow-sm bg-white">
+    <!-- Left: Logo and Company Name -->
+    <div class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center bg-gradient-to-br from-blue-600 to-green-400 rounded-full p-2 shadow-lg">
+            <!-- Example SVG logo icon -->
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="url(#logoGradient)" />
+                <path d="M8 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="logoGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#2563eb"/>
+                        <stop offset="1" stop-color="#22d3ee"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+      <a href="index.html" class="inline-flex items-center focus:outline-none">
+        <span class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-green-400 to-blue-400 bg-clip-text text-transparent tracking-tight drop-shadow">
+            All In One Tech
+        </span>
+    </a>
+        </span>
+    </div>
+    <!-- Right: Navbar Links and Actions -->
+    
+    <script>
+      // Dropdown hover and click support for Services and Categories
+      document.addEventListener('DOMContentLoaded', function () {
+        function setupDropdown(groupSelector) {
+          const group = document.querySelector(groupSelector);
+          if (!group) return;
+          const button = group.querySelector('button');
+          const dropdown = group.querySelector('div.absolute');
+          let timeout;
+
+          function openDropdown() {
+            clearTimeout(timeout);
+            dropdown.classList.remove('hidden');
+          }
+          function closeDropdown() {
+            timeout = setTimeout(() => dropdown.classList.add('hidden'), 150);
+          }
+
+          group.addEventListener('mouseenter', openDropdown);
+          group.addEventListener('mouseleave', closeDropdown);
+          button.addEventListener('focus', openDropdown);
+          button.addEventListener('blur', closeDropdown);
+          dropdown.addEventListener('mouseenter', openDropdown);
+          dropdown.addEventListener('mouseleave', closeDropdown);
+        }
+        setupDropdown('.group:nth-of-type(1)');
+        setupDropdown('.group:nth-of-type(2)');
+      });
+    </script>
+    <div class="flex gap-6 items-center">
+         <a href="about us.html" class="text-gray-700 hover:text-blue-600">About Us</a>
+        <div class="relative group">
+            <div>
+                <button class="flex items-center gap-1 text-gray-700 hover:text-blue-600">
+                    Services
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute top-8 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10">
+                    <ul class="p-2">
+                        <li>
+                            <a href="wedD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Web Development</a>
+                        </li>
+                        <li>
+                            <a href="appD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">App Development</a>
+                        </li>
+                        <li>
+                            <a href="SEO.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">SEO Services</a>
+                        </li>
+                        <li>
+                            <a href="software.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Software Development</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<div class="relative group">
+    <div>
+        <button class="flex items-center gap-1 text-gray-700 hover:text-blue-600">
+            Categories
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" />
+            </svg>
+        </button>
+        <div class="absolute top-8 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10">
+            <ul class="p-2">
+                <li>
+                    <a href="graphicD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Graphic Design</a>
+                </li>
+                <li>
+                    <a href="archiD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Architecture Design</a>
+                </li>
+                <li>
+                    <a href="itsolu.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">IT Solutions</a>
+                </li>
+                <li>
+                    <a href="digimar.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Digital Marketing</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact Us</a>
+ 
+        <!-- Sign In / Join Buttons -->
+        <a href="signin.html" class="px-5 py-2 rounded-full bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition">Sign In</a>
+        <a href="signin.html" class="px-5 py-2 rounded-full bg-green-600 text-white font-semibold shadow hover:bg-green-700 transition">Join</a>
+        <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+                <button id="close-auth-modal" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none">&times;</button>
+                <div class="flex justify-center mb-6">
+                    <button id="show-signin" class="px-4 py-2 font-semibold rounded-l-full bg-blue-600 text-white focus:outline-none">Sign In</button>
+                    <button id="show-join" class="px-4 py-2 font-semibold rounded-r-full bg-gray-200 text-blue-700 focus:outline-none">Join</button>
+                </div>
+                <!-- Sign In Form -->
+                <form id="signin-form">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Sign In</h3>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-700 transition">Sign In</button>
+                </form>
+                <!-- Join Form -->
+                <form id="join-form" class="hidden">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Join</h3>
+                    <input type="text" placeholder="Name" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-700 transition">Join</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Modal logic
+            function showModal(form) {
+                document.getElementById('auth-modal').classList.remove('hidden');
+                document.getElementById('signin-form').classList.toggle('hidden', form !== 'signin');
+                document.getElementById('join-form').classList.toggle('hidden', form !== 'join');
+                document.getElementById('show-signin').classList.toggle('bg-blue-600', form === 'signin');
+                document.getElementById('show-signin').classList.toggle('text-white', form === 'signin');
+                document.getElementById('show-signin').classList.toggle('bg-gray-200', form !== 'signin');
+                document.getElementById('show-signin').classList.toggle('text-blue-700', form !== 'signin');
+                document.getElementById('show-join').classList.toggle('bg-blue-600', form === 'join');
+                document.getElementById('show-join').classList.toggle('text-white', form === 'join');
+                document.getElementById('show-join').classList.toggle('bg-gray-200', form !== 'join');
+                document.getElementById('show-join').classList.toggle('text-blue-700', form !== 'join');
+            }
+            document.querySelectorAll('a[href="signin.html"]').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showModal(this.textContent.trim().toLowerCase() === 'join' ? 'join' : 'signin');
+                });
+            });
+            document.getElementById('close-auth-modal').onclick = function() {
+                document.getElementById('auth-modal').classList.add('hidden');
+            };
+            document.getElementById('show-signin').onclick = function() { showModal('signin'); };
+            document.getElementById('show-join').onclick = function() { showModal('join'); };
+            // Optional: prevent form submission for demo
+            document.getElementById('signin-form').onsubmit = function(e) { e.preventDefault(); };
+            document.getElementById('join-form').onsubmit = function(e) { e.preventDefault(); };
+        </script>
+        
+    </div>
+</nav>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Minimalist Graphic Design Studio</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <!-- Animate.css for basic animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Custom animation styles -->
+    <style>
+        /* Section hover animation */
+        section:hover, .services:hover {
+            box-shadow: 0 8px 32px rgba(74, 78, 105, 0.18);
+            transition: box-shadow 0.4s cubic-bezier(.4,2,.3,1);
+            transform: translateY(-6px) scale(1.01);
+        }
+        /* Animated gradient border for sections on hover */
+        section, .services {
+            position: relative;
+            z-index: 1;
+            transition: box-shadow 0.4s, transform 0.4s;
+        }
+        section::before, .services::before {
+            content: "";
+            position: absolute;
+            inset: -4px;
+            border-radius: 22px;
+            z-index: -1;
+            background: linear-gradient(90deg, #4a4e69 0%, #9a8c98 50%, #f2e9e4 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+        section:hover::before, .services:hover::before {
+            opacity: 1;
+            animation: borderMove 2s linear infinite;
+        }
+        @keyframes borderMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        /* Button animated shadow and color */
+        nav button {
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        nav button:hover {
+            background: linear-gradient(90deg, #4a4e69 0%, #9a8c98 100%);
+            color: #fff;
+            box-shadow: 0 8px 32px rgba(74, 78, 105, 0.18);
+            transition: background 0.4s, box-shadow 0.4s, transform 0.3s;
+        }
+        nav button::before {
+            content: "";
+            position: absolute;
+            left: -75%;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: rgba(255,255,255,0.13);
+            transform: skewX(-20deg);
+            transition: left 0.5s;
+            z-index: 0;
+        }
+        nav button:hover::before {
+            left: 120%;
+            transition: left 0.5s;
+        }
+        /* Feature and gallery item hover animation */
+        .feature, .gallery-item {
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .feature:hover, .gallery-item:hover {
+            box-shadow: 0 12px 32px rgba(74, 78, 105, 0.18);
+            transform: translateY(-8px) scale(1.04) rotate(-1deg);
+            background: linear-gradient(120deg, #f2e9e4 80%, #9a8c98 100%);
+        }
+        /* Animated underline for h2 on hover */
+        h2 {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+        h2::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #4a4e69, #9a8c98);
+            transition: width 0.4s;
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            border-radius: 2px;
+        }
+        h2:hover::after {
+            width: 100%;
+        }
+    </style>
+    <script>
+        // Animate sections on mouse enter/leave
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('section, .services').forEach(function(sec) {
+                sec.addEventListener('mouseenter', function() {
+                    sec.classList.add('animate__animated', 'animate__pulse');
+                });
+                sec.addEventListener('mouseleave', function() {
+                    sec.classList.remove('animate__animated', 'animate__pulse');
+                });
+            });
+            // Animate nav buttons on hover
+            document.querySelectorAll('nav button').forEach(function(btn) {
+                btn.addEventListener('mouseenter', function() {
+                    btn.classList.add('animate__animated', 'animate__rubberBand');
+                });
+                btn.addEventListener('mouseleave', function() {
+                    btn.classList.remove('animate__animated', 'animate__rubberBand');
+                });
+            });
+            // Animate feature and gallery items
+            document.querySelectorAll('.feature, .gallery-item').forEach(function(item) {
+                item.addEventListener('mouseenter', function() {
+                    item.classList.add('animate__animated', 'animate__jello');
+                });
+                item.addEventListener('mouseleave', function() {
+                    item.classList.remove('animate__animated', 'animate__jello');
+                });
+            });
+        });
+    </script>
+    <style>
+        :root {
+            --primary: #22223b;
+            --accent: #4a4e69;
+            --bg: #f2e9e4;
+            --white: #fff;
+            --gray: #9a8c98;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: var(--bg);
+            color: var(--primary);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: var(--white);
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(74, 78, 105, 0.04);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        header p {
+            margin: 0.5rem 0 0 0;
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+        nav {
+            margin: 2rem 0 0 0;
+            text-align: center;
+        }
+        nav button {
+            background: var(--accent);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 2rem;
+            margin: 0 0.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-family: inherit;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(74, 78, 105, 0.07);
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+        nav button::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255,255,255,0.2);
+            border-radius: 100%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease, height 0.4s ease;
+            z-index: 0;
+        }
+        nav button:active::after {
+            width: 200%;
+            height: 200%;
+        }
+        nav button:hover {
+            background: var(--primary);
+            transform: translateY(-2px) scale(1.04);
+        }
+        main {
+            max-width: 1100px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        section {
+            margin-bottom: 3rem;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+        .feature {
+            background: var(--white);
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(74, 78, 105, 0.06);
+            flex: 1 1 220px;
+            min-width: 220px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .feature:hover {
+            box-shadow: 0 6px 24px rgba(74, 78, 105, 0.13);
+        }
+        .feature img {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 1rem;
+        }
+        .feature h3 {
+            margin: 0.5rem 0 0.5rem 0;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .feature p {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+        }
+        .gallery-item {
+            background: var(--white);
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(74, 78, 105, 0.06);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+        }
+        .gallery-item:hover {
+            box-shadow: 0 6px 24px rgba(74, 78, 105, 0.13);
+        }
+        .gallery-item img {
+            width: 100%;
+            max-width: 180px;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            background: #eee;
+            object-fit: contain;
+        }
+        .gallery-item span {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+        .services {
+            background: var(--white);
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(74, 78, 105, 0.06);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .services h2 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .services p {
+            color: var(--black);
+            font-size: 1.1rem;
+            margin-bottom: 0;
+        }
+        @media (max-width: 800px) {
+            .features {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            main {
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Graphic Design</h1>
+        <p>Elevating brands through clean, impactful design.</p>
+       
+    </header>
+    <main>
+        <section>
+            <div class="features">
+                <div class="feature">
+                    <img src="https://img.icons8.com/ios-filled/50/4a4e69/paint-palette.png" alt="Logo Design">
+                    <h3>Logo Design</h3>
+                    <p>Crafting memorable, versatile logos that define your brand identity.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://img.icons8.com/ios-filled/50/4a4e69/monitor.png" alt="Website Design">
+                    <h3>Website Design</h3>
+                    <p>Minimal, responsive websites focused on user experience and clarity.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://img.icons8.com/ios-filled/50/4a4e69/megaphone.png" alt="Marketing Materials">
+                    <h3>Marketing Materials</h3>
+                    <p>Eye-catching brochures, flyers, and social media graphics for your campaigns.</p>
+                </div>
+                <div class="feature">
+                    <img src="https://img.icons8.com/ios-filled/50/4a4e69/diamond.png" alt="Branding Elements">
+                    <h3>Branding Elements</h3>
+                    <p>Consistent color palettes, typography, and visual systems for cohesive branding.</p>
+                </div>
+            </div>
+        </section>
+       
+        <section>
+            <h2 style="text-align:center; font-size:1.5rem; font-weight:700; margin-bottom:2rem;">Our Work</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://dummyimage.com/180x120/4a4e69/f2e9e4&text=Logo+1" alt="Logo Example">
+                    <span>Logo for Tech Startup</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://dummyimage.com/180x120/22223b/f2e9e4&text=Website+Design" alt="Website Design Example">
+                    <span>Minimalist Portfolio Website</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://dummyimage.com/180x120/9a8c98/f2e9e4&text=Brochure" alt="Marketing Material Example">
+                    <span>Product Launch Brochure</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://dummyimage.com/180x120/f2e9e4/4a4e69&text=Brand+Guide" alt="Branding Element Example">
+                    <span>Brand Guidelines Document</span>
+                </div>
+            </div>
+        </section>
+        <!-- Pricing & Details Section -->
+</head>
+<body>
+    <section style="background:var(--white); box-shadow:0 2px 12px rgba(74,78,105,0.06); border-radius:18px; max-width:900px; margin:2rem auto 0 auto; padding:2rem 1.5rem;">
+        <h2 style="text-align:center; font-size:1.5rem; font-weight:700; margin-top:0;">Pricing & Packages</h2>
+        <div style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:space-between; margin-top:2rem;">
+            <div style="flex:1 1 220px; min-width:220px; background:var(--bg); border-radius:14px; padding:1.5rem; text-align:center;">
+                <h3 style="margin:0 0 0.5rem 0;">Logo Design</h3>
+                <p style="color:var(--gray); margin:0 0 1rem 0;">Unique, scalable logo concepts with 2 revisions.</p>
+                <div style="font-size:2rem; font-weight:700; color:var(--accent);">$150</div>
+            </div>
+            <div style="flex:1 1 220px; min-width:220px; background:var(--bg); border-radius:14px; padding:1.5rem; text-align:center;">
+                <h3 style="margin:0 0 0.5rem 0;">Website Design</h3>
+                <p style="color:var(--gray); margin:0 0 1rem 0;">Modern, responsive 3-page website design (UI only).</p>
+                <div style="font-size:2rem; font-weight:700; color:var(--accent);">$400</div>
+            </div>
+            <div style="flex:1 1 220px; min-width:220px; background:var(--bg); border-radius:14px; padding:1.5rem; text-align:center;">
+                <h3 style="margin:0 0 0.5rem 0;">Marketing Materials</h3>
+                <p style="color:var(--gray); margin:0 0 1rem 0;">Brochure, flyer, or social media kit (per item).</p>
+                <div style="font-size:2rem; font-weight:700; color:var(--accent);">$80</div>
+            </div>
+            <div style="flex:1 1 220px; min-width:220px; background:var(--bg); border-radius:14px; padding:1.5rem; text-align:center;">
+                <h3 style="margin:0 0 0.5rem 0;">Branding Package</h3>
+                <p style="color:var(--gray); margin:0 0 1rem 0;">Logo, color palette, typography, and brand guide.</p>
+                <div style="font-size:2rem; font-weight:700; color:var(--accent);">$600</div>
+            </div>
+        </div>
+        <ul style="margin:2rem 0 0 0; color:var(--primary); font-size:1rem; line-height:1.7;">
+            <li><strong>Turnaround:</strong> Most projects delivered within 5-10 business days.</li>
+            <li><strong>Revisions:</strong> All packages include at least 2 free revisions.</li>
+            <li><strong>File Delivery:</strong> You receive high-res files (PNG, SVG, PDF, etc.) and source files on completion.</li>
+            <li><strong>Custom Requests:</strong> Need something unique? Contact us for a tailored quote.</li>
+        </ul>
+        <div style="margin-top:2rem; color:var(--black); font-size:0.98rem;">
+            <strong>Why Minimalist Graphic Design?</strong>
+            <ul style="margin:0.5rem 0 0 1.2rem; padding:0;">
+                <li>Focus on clarity, whitespace, and timeless aesthetics.</li>
+                <li>Improves brand recognition and user engagement.</li>
+                <li>Ensures your message stands out without distractions.</li>
+                <li>Adaptable for both digital and print media.</li>
+            </ul>
+        </div>
+    </section>
+     <br>
+        <br>
+        <section>
+            <div class="services">
+                <h2>Our Services & Expertise</h2>
+                <p>
+                    Minimalist Studio specializes in modern, clean graphic design for businesses and entrepreneurs. Our team brings years of experience in logo creation, web design, marketing collateral, and comprehensive branding solutions. We focus on clarity, usability, and timeless aesthetics to help your brand stand out in a crowded market.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

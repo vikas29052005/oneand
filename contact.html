@@ -1,0 +1,325 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All In One Tech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<!-- Adjusted global font color for better visibility -->
+<style>
+    body, h1, h2, h3, h4, h5, h6, p, span, a, li, label, input, button, select, div, section {
+        color: #1e293b !important; /* Tailwind's slate-800 for dark-on-light, improves contrast */
+    }
+    .bg-blue-600, .bg-gray-900, .text-white, .bg-gradient-to-br {
+        color: #fff !important;
+    }
+    .bg-white, .bg-gray-50, .bg-gray-100 {
+        color: #1e293b !important;
+    }
+</style>
+<!-- Navbar Brand: All In One Tech -->
+<nav class="flex justify-between items-center px-6 py-4 shadow-sm bg-white">
+    <!-- Left: Logo and Company Name -->
+    <div class="flex items-center gap-2">
+        <span class="inline-flex items-center justify-center bg-gradient-to-br from-blue-600 to-green-400 rounded-full p-2 shadow-lg">
+            <!-- Example SVG logo icon -->
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="url(#logoGradient)" />
+                <path d="M8 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <defs>
+                    <linearGradient id="logoGradient" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#2563eb"/>
+                        <stop offset="1" stop-color="#22d3ee"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+      <a href="index.html" class="inline-flex items-center focus:outline-none">
+        <span class="text-2xl font-extrabold bg-gradient-to-r from-blue-600 via-green-400 to-blue-400 bg-clip-text text-transparent tracking-tight drop-shadow">
+            All In One Tech
+        </span>
+    </a>
+        </span>
+    </div>
+    <!-- Right: Navbar Links and Actions -->
+    
+    <script>
+      // Dropdown hover and click support for Services and Categories
+      document.addEventListener('DOMContentLoaded', function () {
+        function setupDropdown(groupSelector) {
+          const group = document.querySelector(groupSelector);
+          if (!group) return;
+          const button = group.querySelector('button');
+          const dropdown = group.querySelector('div.absolute');
+          let timeout;
+
+          function openDropdown() {
+            clearTimeout(timeout);
+            dropdown.classList.remove('hidden');
+          }
+          function closeDropdown() {
+            timeout = setTimeout(() => dropdown.classList.add('hidden'), 150);
+          }
+
+          group.addEventListener('mouseenter', openDropdown);
+          group.addEventListener('mouseleave', closeDropdown);
+          button.addEventListener('focus', openDropdown);
+          button.addEventListener('blur', closeDropdown);
+          dropdown.addEventListener('mouseenter', openDropdown);
+          dropdown.addEventListener('mouseleave', closeDropdown);
+        }
+        setupDropdown('.group:nth-of-type(1)');
+        setupDropdown('.group:nth-of-type(2)');
+      });
+    </script>
+    <style>
+        /* Ensure dropdowns appear above other content */
+        .group > div > .absolute {
+            z-index: 30 !important;
+        }
+    </style>
+    <div class="flex gap-6 items-center">
+         <a href="about us.html" class="text-gray-700 hover:text-blue-600">About Us</a>
+        <div class="relative group">
+            <div>
+                <button class="flex items-center gap-1 text-gray-700 hover:text-blue-600">
+                    Services
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div class="absolute top-8 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10">
+                    <ul class="p-2">
+                        <li>
+                            <a href="wedD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Web Development</a>
+                        </li>
+                        <li>
+                            <a href="appD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">App Development</a>
+                        </li>
+                        <li>
+                            <a href="SEO.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">SEO Services</a>
+                        </li>
+                        <li>
+                            <a href="software.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Software Development</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<div class="relative group">
+    <div>
+        <button class="flex items-center gap-1 text-gray-700 hover:text-blue-600">
+            Categories
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M19 9l-7 7-7-7" />
+            </svg>
+        </button>
+        <div class="absolute top-8 left-0 hidden group-hover:block group-focus-within:block bg-white border shadow-md rounded-md z-10">
+            <ul class="p-2">
+                <li>
+                    <a href="graphicD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Graphic Design</a>
+                </li>
+                <li>
+                    <a href="archiD.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Architecture Design</a>
+                </li>
+                <li>
+                    <a href="itsolu.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">IT Solutions</a>
+                </li>
+                <li>
+                    <a href="digimar.html" class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Digital Marketing</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <a href="contact.html" class="text-gray-700 hover:text-blue-600">Contact Us</a>
+     
+        <!-- Sign In / Join Buttons -->
+        <a href="signin.html" class="px-5 py-2 rounded-full bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition">Sign In</a>
+        <a href="signin.html" class="px-5 py-2 rounded-full bg-green-600 text-white font-semibold shadow hover:bg-green-700 transition">Join</a>
+        <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative">
+                <button id="close-auth-modal" class="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-2xl font-bold focus:outline-none">&times;</button>
+                <div class="flex justify-center mb-6">
+                    <button id="show-signin" class="px-4 py-2 font-semibold rounded-l-full bg-blue-600 text-white focus:outline-none">Sign In</button>
+                    <button id="show-join" class="px-4 py-2 font-semibold rounded-r-full bg-gray-200 text-blue-700 focus:outline-none">Join</button>
+                </div>
+                <!-- Sign In Form -->
+                <form id="signin-form">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Sign In</h3>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-700 transition">Sign In</button>
+                </form>
+                <!-- Join Form -->
+                <form id="join-form" class="hidden">
+                    <h3 class="text-xl font-bold mb-4 text-blue-700">Join</h3>
+                    <input type="text" placeholder="Name" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="email" placeholder="Email" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <input type="password" placeholder="Password" class="w-full mb-3 px-4 py-2 border rounded focus:outline-none" required>
+                    <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-full font-semibold hover:bg-green-700 transition">Join</button>
+                </form>
+            </div>
+        </div>
+        <script>
+            // Modal logic
+            function showModal(form) {
+                document.getElementById('auth-modal').classList.remove('hidden');
+                document.getElementById('signin-form').classList.toggle('hidden', form !== 'signin');
+                document.getElementById('join-form').classList.toggle('hidden', form !== 'join');
+                document.getElementById('show-signin').classList.toggle('bg-blue-600', form === 'signin');
+                document.getElementById('show-signin').classList.toggle('text-white', form === 'signin');
+                document.getElementById('show-signin').classList.toggle('bg-gray-200', form !== 'signin');
+                document.getElementById('show-signin').classList.toggle('text-blue-700', form !== 'signin');
+                document.getElementById('show-join').classList.toggle('bg-blue-600', form === 'join');
+                document.getElementById('show-join').classList.toggle('text-white', form === 'join');
+                document.getElementById('show-join').classList.toggle('bg-gray-200', form !== 'join');
+                document.getElementById('show-join').classList.toggle('text-blue-700', form !== 'join');
+            }
+            document.querySelectorAll('a[href="signin.html"]').forEach(el => {
+                el.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showModal(this.textContent.trim().toLowerCase() === 'join' ? 'join' : 'signin');
+                });
+            });
+            document.getElementById('close-auth-modal').onclick = function() {
+                document.getElementById('auth-modal').classList.add('hidden');
+            };
+            document.getElementById('show-signin').onclick = function() { showModal('signin'); };
+            document.getElementById('show-join').onclick = function() { showModal('join'); };
+            // Optional: prevent form submission for demo
+            document.getElementById('signin-form').onsubmit = function(e) { e.preventDefault(); };
+            document.getElementById('join-form').onsubmit = function(e) { e.preventDefault(); };
+        </script>
+        
+    </div>
+</nav>
+
+<!-- Contact Section -->
+<section class="relative py-16 px-4 sm:px-8 md:px-16 bg-gradient-to-br from-blue-50 via-green-50 to-blue-100 overflow-hidden">
+    <!-- Animated Background SVG -->
+    <div class="absolute inset-0 pointer-events-none z-0">
+        <svg class="w-full h-full" viewBox="0 0 1440 320" fill="none">
+            <path fill="url(#bgGradient)" fill-opacity="0.3" d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,154.7C840,149,960,171,1080,186.7C1200,203,1320,213,1380,218.7L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+            <defs>
+                <linearGradient id="bgGradient" x1="0" y1="0" x2="1440" y2="320" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#2563eb"/>
+                    <stop offset="1" stop-color="#22d3ee"/>
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+    <div class="relative z-10 max-w-5xl mx-auto bg-white/80 rounded-xl shadow-xl p-8 md:p-12 backdrop-blur">
+        <div class="flex flex-col md:flex-row gap-10">
+            <!-- Contact Info -->
+            <div class="flex-1 space-y-6">
+                <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-600 via-green-400 to-blue-400 bg-clip-text text-transparent mb-2">Contact Us</h2>
+                <p class="text-lg">We're here to help! Reach out to us through any of the options below.</p>
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-green-400 text-white shadow">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 12H8m8 0l-4-4m4 4l-4 4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <a href="mailto:support@allinone.tech" class="font-semibold text-blue-600 hover:underline">support@allinone.tech</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-600 text-white shadow">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5h2l.4 2M7 13h10l4-8H5.4M7 13l-1.35 2.7A2 2 0 0 0 7.5 19h9a2 2 0 0 0 1.85-2.3L17 13M7 13V6a1 1 0 0 1 1-1h5a1 1 0 0 1 1 1v7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <a href="tel:+1234567890" class="font-semibold text-blue-600 hover:underline">+1 (234) 567-890</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-green-400 text-white shadow">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2h-4l-3 3v-3H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <a href="sms:+1234567890" class="font-semibold text-blue-600 hover:underline">Text: +1 (234) 567-890</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-blue-600 text-white shadow">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <a href="https://allinone.tech/help" class="font-semibold text-blue-600 hover:underline">Help Center & Guides</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-green-400 text-white shadow">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a4 4 0 0 0-3-3.87M9 20H4v-2a4 4 0 0 1 3-3.87M16 3.13a4 4 0 0 1 0 7.75M8 3.13a4 4 0 0 0 0 7.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <button onclick="window.open('https://tawk.to/chat/your-live-chat-id', '_blank')" class="font-semibold text-blue-600 hover:underline">Live Chat</button>
+                    </div>
+                </div>
+                <!-- Address & Map -->
+                <div class="mt-6">
+                    <div class="flex items-center gap-3">
+                        <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-green-400 text-white shadow">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                        </span>
+                        <span>
+                            123 Tech Avenue, Suite 456<br>
+                            New Delhi, India 110001
+                        </span>
+                    </div>
+                    <div class="mt-4 rounded-lg overflow-hidden shadow-lg border border-blue-100">
+                        <iframe class="w-full h-40" frameborder="0" style="border:0"
+                            src="https://www.google.com/maps?q=28.6139,77.2090&z=15&output=embed" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Form -->
+            <div class="flex-1">
+                <form class="space-y-5 animate-fade-in-up" autocomplete="off">
+                    <div>
+                        <label class="block font-semibold mb-1" for="name">Name</label>
+                        <input id="name" name="name" type="text" required class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 transition" placeholder="Your Name">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1" for="email">Email</label>
+                        <input id="email" name="email" type="email" required class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 transition" placeholder="you@email.com">
+                    </div>
+                    <div>
+                        <label class="block font-semibold mb-1" for="message">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-2 border border-blue-200 rounded-lg focus:ring-2 focus:ring-blue-400 transition" placeholder="How can we help you?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-green-400 text-white font-bold py-2 rounded-lg shadow hover:from-blue-700 hover:to-green-500 transition">Send Message</button>
+                </form>
+                <!-- FAQ -->
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold mb-3 bg-gradient-to-r from-blue-600 via-green-400 to-blue-400 bg-clip-text text-transparent">Frequently Asked Questions</h3>
+                    <div class="space-y-2">
+                        <details class="group border-l-4 border-blue-400 bg-blue-50/60 rounded p-3 transition-all">
+                            <summary class="font-semibold cursor-pointer group-open:text-blue-700">How quickly do you respond to messages?</summary>
+                            <p class="mt-2 text-sm">We aim to respond within 24 hours on business days.</p>
+                        </details>
+                        <details class="group border-l-4 border-green-400 bg-green-50/60 rounded p-3 transition-all">
+                            <summary class="font-semibold cursor-pointer group-open:text-green-700">Where can I find your guides?</summary>
+                            <p class="mt-2 text-sm">Visit our <a href="https://allinone.tech/help" class="text-blue-600 underline">Help Center</a> for tutorials and guides.</p>
+                        </details>
+                        <details class="group border-l-4 border-blue-400 bg-blue-50/60 rounded p-3 transition-all">
+                            <summary class="font-semibold cursor-pointer group-open:text-blue-700">Do you offer support in other languages?</summary>
+                            <p class="mt-2 text-sm">Yes, we support English, Hindi, Spanish, and French.</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Animation for fade-in-up -->
+<style>
+@keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(40px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+.animate-fade-in-up {
+    animation: fade-in-up 1s cubic-bezier(.4,0,.2,1) both;
+}
+</style>
